@@ -21,35 +21,38 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-surface-800 bg-surface-950">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+    <footer className="border-t border-surface-800 bg-black relative">
+      {/* Subtle grid */}
+      <div className="absolute inset-0 grid-pattern opacity-20" />
+
+      <div className="relative max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <a href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center font-bold text-white text-sm">
+            <a href="/" className="flex items-center gap-3 mb-4 group">
+              <div className="w-10 h-10 rounded-xl bg-black border-2 border-[#e0ff00] flex items-center justify-center font-bold text-[#e0ff00] text-sm group-hover:bg-[#e0ff00] group-hover:text-black transition-all duration-300">
                 TF
               </div>
-              <span className="font-semibold text-lg text-surface-100">
+              <span className="font-bold text-lg text-white group-hover:text-[#e0ff00] transition-colors">
                 Tech Flunky Labs
               </span>
             </a>
             <p className="text-surface-400 mb-4 max-w-sm text-sm">
               AI-powered development and infrastructure. From edge applications to Docker deployments,
-              we build and manage production-grade systems on modern cloud infrastructure.
+              we build and manage production-grade systems.
             </p>
             <div className="flex gap-4">
               <a
                 href="https://github.com/cozyartz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-surface-500 hover:text-surface-300 transition-colors"
+                className="text-surface-500 hover:text-[#e0ff00] transition-colors"
               >
                 <Github className="w-5 h-5" />
               </a>
               <a
                 href="mailto:hello@techflunkylabs.com"
-                className="text-surface-500 hover:text-surface-300 transition-colors"
+                className="text-surface-500 hover:text-[#e0ff00] transition-colors"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -58,13 +61,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-surface-200 mb-4">Services</h4>
+            <h4 className="font-semibold text-white mb-4">Services</h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-surface-400 hover:text-surface-200 transition-colors text-sm"
+                    className="text-surface-400 hover:text-[#e0ff00] transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -75,13 +78,13 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold text-surface-200 mb-4">Resources</h4>
+            <h4 className="font-semibold text-white mb-4">Resources</h4>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-surface-400 hover:text-surface-200 transition-colors text-sm"
+                    className="text-surface-400 hover:text-[#e0ff00] transition-colors text-sm"
                   >
                     {link.label}
                   </a>
@@ -92,7 +95,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-surface-200 mb-4">Connect</h4>
+            <h4 className="font-semibold text-white mb-4">Connect</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -100,7 +103,7 @@ export default function Footer() {
                     href={link.href}
                     target={link.external ? '_blank' : undefined}
                     rel={link.external ? 'noopener noreferrer' : undefined}
-                    className="inline-flex items-center gap-1 text-surface-400 hover:text-surface-200 transition-colors text-sm"
+                    className="inline-flex items-center gap-1 text-surface-400 hover:text-[#e0ff00] transition-colors text-sm"
                   >
                     {link.label}
                     {link.external && <ExternalLink className="w-3 h-3" />}
@@ -117,7 +120,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Tech Flunky Labs. All rights reserved.
           </p>
           <p className="text-sm text-surface-500">
-            Built with Astro + Claude Code &middot; Deployed on Cloudflare
+            Built with <span className="text-[#e0ff00]">Astro + Three.js + Claude Code</span> &middot; Deployed on Cloudflare
           </p>
         </div>
       </div>

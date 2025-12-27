@@ -26,17 +26,17 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-surface-950/80 backdrop-blur-lg border-b border-surface-800' : ''
+        isScrolled ? 'bg-black/90 backdrop-blur-lg border-b border-[#e0ff00]/10' : ''
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4">
+      <div className="max-w-7xl mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center font-bold text-white text-sm">
+          <a href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-xl bg-black border-2 border-[#e0ff00] flex items-center justify-center font-bold text-[#e0ff00] text-sm group-hover:bg-[#e0ff00] group-hover:text-black transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(224,255,0,0.5)]">
               TF
             </div>
-            <span className="font-semibold text-lg text-surface-100 hidden sm:block">
+            <span className="font-bold text-lg text-white hidden sm:block group-hover:text-[#e0ff00] transition-colors">
               Tech Flunky Labs
             </span>
           </a>
@@ -47,7 +47,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-surface-400 hover:text-surface-100 transition-colors text-sm font-medium"
+                className="text-surface-400 hover:text-[#e0ff00] transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -56,13 +56,13 @@ export default function Header() {
               href="https://github.com/cozyartz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-surface-400 hover:text-surface-100 transition-colors"
+              className="text-surface-400 hover:text-[#e0ff00] transition-colors"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
               href="#contact"
-              className="px-5 py-2.5 bg-primary-500 hover:bg-primary-400 text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-5 py-2.5 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black text-sm font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(224,255,0,0.4)]"
             >
               Get Started
             </a>
@@ -71,7 +71,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-surface-400 hover:text-surface-100 transition-colors"
+            className="lg:hidden p-2 text-surface-400 hover:text-[#e0ff00] transition-colors"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -87,13 +87,13 @@ export default function Header() {
               transition={{ duration: 0.2 }}
               className="lg:hidden overflow-hidden"
             >
-              <div className="py-4 space-y-4">
+              <div className="py-4 space-y-4 border-t border-surface-800 mt-4">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-surface-300 hover:text-surface-100 transition-colors text-lg"
+                    className="block text-surface-300 hover:text-[#e0ff00] transition-colors text-lg"
                   >
                     {link.label}
                   </a>
@@ -101,7 +101,7 @@ export default function Header() {
                 <a
                   href="#contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-block mt-4 px-5 py-2.5 bg-primary-500 hover:bg-primary-400 text-white font-medium rounded-lg transition-colors"
+                  className="inline-block mt-4 px-5 py-2.5 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black font-bold rounded-lg transition-colors"
                 >
                   Get Started
                 </a>

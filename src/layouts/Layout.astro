@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Tech Flunky Labs - We build AI-powered platforms, edge-first applications, and scalable SaaS solutions on Cloudflare infrastructure." } = Astro.props;
+const { title, description = "Tech Flunky Labs - AI-powered development and infrastructure. We build edge-first applications, deploy production servers, and integrate AI into everything." } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ const { title, description = "Tech Flunky Labs - We build AI-powered platforms, 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="theme-color" content="#e0ff00" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -28,15 +28,15 @@ const { title, description = "Tech Flunky Labs - We build AI-powered platforms, 
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <!-- Fonts -->
+    <!-- Fonts - Space Grotesk for that funky tech look -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-surface-950 text-surface-100 antialiased">
+  <body class="min-h-screen bg-black text-surface-100 antialiased noise-overlay">
     <slot />
   </body>
 </html>

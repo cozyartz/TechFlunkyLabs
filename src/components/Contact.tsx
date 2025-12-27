@@ -3,8 +3,11 @@ import { Mail, Github, Calendar, ArrowRight } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-6 bg-surface-900/30">
-      <div className="max-w-4xl mx-auto">
+    <section id="contact" className="py-24 px-6 relative">
+      {/* Grid background */}
+      <div className="absolute inset-0 grid-pattern opacity-30" />
+
+      <div className="relative max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -30,18 +33,18 @@ export default function Contact() {
           {/* Email card */}
           <a
             href="mailto:hello@techflunkylabs.com"
-            className="group p-8 rounded-2xl bg-surface-900 border border-surface-800 hover:border-primary-500/50 transition-all duration-300 hover:-translate-y-1"
+            className="group p-8 rounded-2xl bg-surface-900/80 border border-surface-800 hover:border-[#e0ff00]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(224,255,0,0.1)]"
           >
-            <div className="inline-flex p-3 rounded-xl bg-primary-500/10 mb-4">
-              <Mail className="w-6 h-6 text-primary-400" />
+            <div className="inline-flex p-3 rounded-xl bg-[#e0ff00]/10 mb-4 group-hover:bg-[#e0ff00]/20 transition-colors">
+              <Mail className="w-6 h-6 text-[#e0ff00]" />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-surface-100">
+            <h3 className="text-xl font-semibold mb-2 text-white">
               Email Us
             </h3>
             <p className="text-surface-400 mb-4">
               Send us your project details and we'll get back to you within 24 hours.
             </p>
-            <span className="inline-flex items-center gap-2 text-primary-400 group-hover:text-primary-300 transition-colors">
+            <span className="inline-flex items-center gap-2 text-[#e0ff00] group-hover:text-[#f0ff4d] transition-colors">
               hello@techflunkylabs.com
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
@@ -52,12 +55,12 @@ export default function Contact() {
             href="https://github.com/cozyartz"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-8 rounded-2xl bg-surface-900 border border-surface-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1"
+            className="group p-8 rounded-2xl bg-surface-900/80 border border-surface-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]"
           >
-            <div className="inline-flex p-3 rounded-xl bg-accent-500/10 mb-4">
+            <div className="inline-flex p-3 rounded-xl bg-accent-500/10 mb-4 group-hover:bg-accent-500/20 transition-colors">
               <Github className="w-6 h-6 text-accent-400" />
             </div>
-            <h3 className="text-xl font-semibold mb-2 text-surface-100">
+            <h3 className="text-xl font-semibold mb-2 text-white">
               GitHub
             </h3>
             <p className="text-surface-400 mb-4">
@@ -78,8 +81,8 @@ export default function Contact() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mt-12 p-8 rounded-2xl animated-border text-center"
         >
-          <Calendar className="w-8 h-8 text-primary-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-semibold mb-2 text-surface-100">
+          <Calendar className="w-8 h-8 text-[#e0ff00] mx-auto mb-4" />
+          <h3 className="text-2xl font-semibold mb-2 text-white">
             Schedule a Discovery Call
           </h3>
           <p className="text-surface-400 mb-6 max-w-lg mx-auto">
@@ -88,7 +91,7 @@ export default function Contact() {
           </p>
           <a
             href="mailto:hello@techflunkylabs.com?subject=Discovery%20Call%20Request"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary-500 hover:bg-primary-400 text-white font-semibold rounded-xl transition-all duration-300 glow hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black font-bold rounded-xl transition-all duration-300 glow hover:scale-105"
           >
             Book a Call
             <ArrowRight className="w-5 h-5" />

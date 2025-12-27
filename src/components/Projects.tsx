@@ -16,7 +16,7 @@ const projects = [
     description: 'AI-powered email validation API with sub-100ms response times and 99.9% accuracy on Cloudflare Edge.',
     tech: ['TypeScript', 'Cloudflare Workers', 'AI', 'API'],
     icon: Mail,
-    color: 'from-accent-500 to-accent-600',
+    color: 'from-[#e0ff00] to-[#c8e600]',
     link: 'https://spamidate.com',
     github: 'https://github.com/cozyartz/spamidate',
   },
@@ -34,7 +34,7 @@ const projects = [
     description: 'AI-powered marketplace for validated business blueprints. D1 database, R2 storage, and Claude AI integration.',
     tech: ['Astro', 'Cloudflare Workers', 'D1', 'Claude AI'],
     icon: Zap,
-    color: 'from-primary-500 to-primary-600',
+    color: 'from-[#e0ff00] to-[#a0b800]',
     link: 'https://techflunky.com',
     github: 'https://github.com/cozyartz/techflunky',
   },
@@ -75,15 +75,18 @@ const projects = [
     description: 'Managed server infrastructure with Docker, PostgreSQL, Redis, automated backups, and Cloudflare Tunnel integration.',
     tech: ['Ubuntu', 'Docker', 'PostgreSQL', 'Tunnels'],
     icon: Server,
-    color: 'from-slate-500 to-slate-600',
+    color: 'from-slate-600 to-slate-700',
     github: 'https://github.com/cozyartz/FunkyVM',
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="work" className="py-24 px-6 bg-surface-900/30">
-      <div className="max-w-6xl mx-auto">
+    <section id="work" className="py-24 px-6 relative">
+      {/* Background */}
+      <div className="absolute inset-0 grid-pattern opacity-30" />
+
+      <div className="relative max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,15 +110,17 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group relative rounded-2xl bg-surface-900 border border-surface-800 overflow-hidden hover:border-surface-700 transition-all duration-300"
+              className="group relative rounded-2xl bg-surface-900/80 border border-surface-800 overflow-hidden hover:border-[#e0ff00]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(224,255,0,0.05)]"
             >
               {/* Gradient header */}
-              <div className={`h-28 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
-                <project.icon className="w-10 h-10 text-white/90" />
+              <div className={`h-28 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
+                <project.icon className="w-10 h-10 text-white/90 relative z-10" />
+                {/* Scan line effect */}
+                <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse" />
               </div>
 
               <div className="p-5">
-                <h3 className="text-lg font-semibold mb-2 text-surface-100">
+                <h3 className="text-lg font-semibold mb-2 text-white group-hover:text-[#e0ff00] transition-colors">
                   {project.title}
                 </h3>
 
@@ -128,7 +133,7 @@ export default function Projects() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 text-xs rounded-md bg-surface-800 text-surface-300"
+                      className="px-2 py-0.5 text-xs rounded-md bg-black/50 text-surface-300 border border-surface-800"
                     >
                       {tech}
                     </span>
@@ -142,7 +147,7 @@ export default function Projects() {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-primary-400 hover:text-primary-300 transition-colors"
+                      className="inline-flex items-center gap-1 text-sm text-[#e0ff00] hover:text-[#f0ff4d] transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live
@@ -153,7 +158,7 @@ export default function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-surface-400 hover:text-surface-300 transition-colors"
+                      className="inline-flex items-center gap-1 text-sm text-surface-400 hover:text-[#e0ff00] transition-colors"
                     >
                       <Github className="w-4 h-4" />
                       Code
@@ -176,7 +181,7 @@ export default function Projects() {
             href="https://github.com/cozyartz"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-surface-400 hover:text-surface-200 transition-colors"
+            className="inline-flex items-center gap-2 text-surface-400 hover:text-[#e0ff00] transition-colors"
           >
             <Github className="w-5 h-5" />
             View all 50+ projects on GitHub

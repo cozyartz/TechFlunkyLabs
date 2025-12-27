@@ -1,32 +1,43 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Space Grotesk", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
 
-  /* Tech Flunky Labs Brand Colors */
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
-  --color-primary-950: #082f49;
+  /* Tech Flunky Labs Brand Colors - Black & Electric Yellow */
+  --color-primary-50: #fefce8;
+  --color-primary-100: #fef9c3;
+  --color-primary-200: #fef08a;
+  --color-primary-300: #fde047;
+  --color-primary-400: #facc15;
+  --color-primary-500: #eab308;
+  --color-primary-600: #ca8a04;
+  --color-primary-700: #a16207;
+  --color-primary-800: #854d0e;
+  --color-primary-900: #713f12;
+  --color-primary-950: #422006;
 
-  --color-accent-400: #a78bfa;
-  --color-accent-500: #8b5cf6;
-  --color-accent-600: #7c3aed;
+  /* Electric Yellow - the funky accent */
+  --color-electric: #e0ff00;
+  --color-electric-dim: #c8e600;
+  --color-electric-bright: #f0ff4d;
 
+  /* Secondary accent - subtle purple for variety */
+  --color-accent-400: #c084fc;
+  --color-accent-500: #a855f7;
+  --color-accent-600: #9333ea;
+
+  /* Dark surfaces - true blacks */
   --color-surface-50: #fafafa;
   --color-surface-100: #f4f4f5;
   --color-surface-200: #e4e4e7;
-  --color-surface-800: #27272a;
-  --color-surface-900: #18181b;
-  --color-surface-950: #09090b;
+  --color-surface-300: #d4d4d8;
+  --color-surface-400: #a1a1aa;
+  --color-surface-500: #71717a;
+  --color-surface-700: #3f3f46;
+  --color-surface-800: #1a1a1a;
+  --color-surface-900: #0d0d0d;
+  --color-surface-950: #000000;
 }
 
 html {
@@ -39,7 +50,7 @@ body {
   color: var(--color-surface-100);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - yellow accent */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -55,35 +66,54 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-700);
+  background: var(--color-electric);
 }
 
-/* Gradient text utility */
+/* Gradient text utility - electric yellow */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-primary-400), var(--color-accent-500));
+  background: linear-gradient(135deg, var(--color-electric), var(--color-primary-400));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glow effects */
+/* Electric glow effects */
 .glow {
-  box-shadow: 0 0 40px -10px var(--color-primary-500);
+  box-shadow: 0 0 40px -10px var(--color-electric);
+}
+
+.glow-subtle {
+  box-shadow: 0 0 30px -15px var(--color-electric);
 }
 
 .glow-accent {
   box-shadow: 0 0 40px -10px var(--color-accent-500);
 }
 
-/* Grid pattern background */
+/* Text glow */
+.text-glow {
+  text-shadow: 0 0 20px var(--color-electric);
+}
+
+/* 3D perspective grid background */
 .grid-pattern {
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(224, 255, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(224, 255, 0, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
-/* Animated gradient border */
+/* Perspective grid - 3D effect */
+.perspective-grid {
+  background-image:
+    linear-gradient(to right, rgba(224, 255, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(224, 255, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  transform-origin: center top;
+}
+
+/* Animated gradient border - yellow theme */
 @keyframes gradient-rotate {
   0% { --gradient-angle: 0deg; }
   100% { --gradient-angle: 360deg; }
@@ -100,7 +130,7 @@ body {
   position: absolute;
   inset: -2px;
   border-radius: 18px;
-  background: conic-gradient(from var(--gradient-angle, 0deg), var(--color-primary-500), var(--color-accent-500), var(--color-primary-500));
+  background: conic-gradient(from var(--gradient-angle, 0deg), var(--color-electric), var(--color-primary-500), var(--color-electric));
   z-index: -1;
   animation: gradient-rotate 4s linear infinite;
 }
@@ -121,12 +151,97 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Pulse glow */
+/* Pulse glow - electric yellow */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px -5px var(--color-primary-500); }
-  50% { box-shadow: 0 0 40px -5px var(--color-primary-400); }
+  0%, 100% { box-shadow: 0 0 20px -5px var(--color-electric); }
+  50% { box-shadow: 0 0 50px -5px var(--color-electric-bright); }
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* 3D Card styles */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateZ(20px) rotateX(-5deg) rotateY(5deg);
+}
+
+/* 3D flip card */
+.flip-card {
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Funky scan line effect */
+@keyframes scanline {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.scanline::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--color-electric), transparent);
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Electric border */
+.electric-border {
+  border: 1px solid transparent;
+  background: linear-gradient(var(--color-surface-900), var(--color-surface-900)) padding-box,
+              linear-gradient(135deg, var(--color-electric), var(--color-surface-800), var(--color-electric)) border-box;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0); }
+  92% { transform: translate(-2px, 1px); }
+  94% { transform: translate(2px, -1px); }
+  96% { transform: translate(-1px, -1px); }
+  98% { transform: translate(1px, 1px); }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s ease-in-out;
 }
