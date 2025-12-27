@@ -4,7 +4,9 @@ import { Menu, X, Github } from 'lucide-react';
 
 const navLinks = [
   { href: '#services', label: 'Services' },
-  { href: '#work', label: 'Work' },
+  { href: '#how-we-work', label: 'How We Work' },
+  { href: '#work', label: 'Projects' },
+  { href: '#cloudflare', label: 'Cloudflare' },
   { href: '#stack', label: 'Tech Stack' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -40,7 +42,7 @@ export default function Header() {
           </a>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -69,7 +71,7 @@ export default function Header() {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-surface-400 hover:text-surface-100 transition-colors"
+            className="lg:hidden p-2 text-surface-400 hover:text-surface-100 transition-colors"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -83,7 +85,7 @@ export default function Header() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden"
             >
               <div className="py-4 space-y-4">
                 {navLinks.map((link) => (

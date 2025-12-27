@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Zap, ShoppingBag, BookOpen, Mail, MapPin, Bot } from 'lucide-react';
+import { ExternalLink, Github, Zap, ShoppingBag, BookOpen, Mail, Server, Bot, Scissors, Image } from 'lucide-react';
 
 const projects = [
   {
-    title: 'TechFlunky Marketplace',
-    description: 'AI-powered marketplace for validated business blueprints. Buy and sell startup concepts with secure escrow and integrated AI tools.',
-    tech: ['Astro', 'Cloudflare Workers', 'D1', 'AI'],
-    icon: Zap,
-    color: 'from-primary-500 to-primary-600',
-    link: 'https://techflunky.com',
-    github: 'https://github.com/cozyartz/techflunky',
+    title: 'Pink 9 to 5',
+    description: 'E-commerce platform for a breast cancer non-profit. Medusa.js running on Docker with PostgreSQL, protected by Cloudflare Zero Trust.',
+    tech: ['Medusa.js', 'Docker', 'PostgreSQL', 'Zero Trust'],
+    icon: ShoppingBag,
+    color: 'from-pink-500 to-pink-600',
+    link: 'https://pink9to5.org',
+    github: 'https://github.com/cozyartz/Pink9to5',
   },
   {
     title: 'Spamidate',
@@ -22,36 +22,61 @@ const projects = [
   },
   {
     title: 'Nuggsandco',
-    description: 'Modern e-commerce platform built with Medusa.js on Cloudflare infrastructure. Headless commerce with complete customization.',
-    tech: ['Medusa.js', 'TypeScript', 'PostgreSQL', 'Cloudflare'],
+    description: 'Full e-commerce stack with Medusa.js backend on dedicated VM, Cloudflare Pages frontend, and Hyperdrive database connections.',
+    tech: ['Medusa.js', 'Docker', 'PostgreSQL', 'Hyperdrive'],
     icon: ShoppingBag,
     color: 'from-green-500 to-green-600',
     link: 'https://nuggsandco.com',
     github: 'https://github.com/cozyartz/nuggsandco',
   },
   {
+    title: 'TechFlunky Marketplace',
+    description: 'AI-powered marketplace for validated business blueprints. D1 database, R2 storage, and Claude AI integration.',
+    tech: ['Astro', 'Cloudflare Workers', 'D1', 'Claude AI'],
+    icon: Zap,
+    color: 'from-primary-500 to-primary-600',
+    link: 'https://techflunky.com',
+    github: 'https://github.com/cozyartz/techflunky',
+  },
+  {
+    title: 'Splinterpic',
+    description: 'AI-powered business image generation platform. Generate professional lifestyle photos for products and marketing.',
+    tech: ['TypeScript', 'AI Image Gen', 'Cloudflare', 'R2'],
+    icon: Image,
+    color: 'from-orange-500 to-orange-600',
+    github: 'https://github.com/cozyartz/splinterpic',
+  },
+  {
     title: 'AstroLMS',
-    description: 'Learning Management System with AI-powered content generation, multi-tenant architecture, and HIPAA compliance.',
-    tech: ['Next.js', 'AI', 'PostgreSQL', 'Multi-tenant'],
+    description: 'Learning Management System with AI content generation, multi-tenant architecture, and compliance features.',
+    tech: ['Next.js', 'Claude AI', 'PostgreSQL', 'Multi-tenant'],
     icon: BookOpen,
     color: 'from-blue-500 to-blue-600',
     github: 'https://github.com/cozyartz/AstroLMS',
   },
   {
-    title: 'Michigan Spots',
-    description: 'Location-based discovery platform for Michigan destinations. Interactive maps and community-driven content.',
-    tech: ['TypeScript', 'Astro', 'Maps API', 'D1'],
-    icon: MapPin,
-    color: 'from-emerald-500 to-emerald-600',
-    github: 'https://github.com/cozyartz/michiganspots',
-  },
-  {
     title: 'RFP AI Assistant',
-    description: 'AI-powered RFP response system. Automates proposal generation with intelligent content matching.',
-    tech: ['TypeScript', 'Claude AI', 'Cloudflare', 'Workers'],
+    description: 'AI-powered RFP response system. Automates proposal generation with intelligent content matching and formatting.',
+    tech: ['TypeScript', 'Claude AI', 'Cloudflare Workers'],
     icon: Bot,
     color: 'from-purple-500 to-purple-600',
     github: 'https://github.com/cozyartz/RFPai-assistant',
+  },
+  {
+    title: 'CutGlueBuild',
+    description: 'Professional AI-powered laser cutting platform for makers. File processing, pricing engine, and order management.',
+    tech: ['TypeScript', 'Astro', 'AI', 'Cloudflare'],
+    icon: Scissors,
+    color: 'from-red-500 to-red-600',
+    github: 'https://github.com/cozyartz/cutgluebuild',
+  },
+  {
+    title: 'Production VM Infrastructure',
+    description: 'Managed server infrastructure with Docker, PostgreSQL, Redis, automated backups, and Cloudflare Tunnel integration.',
+    tech: ['Ubuntu', 'Docker', 'PostgreSQL', 'Tunnels'],
+    icon: Server,
+    color: 'from-slate-500 to-slate-600',
+    github: 'https://github.com/cozyartz/FunkyVM',
   },
 ];
 
@@ -70,7 +95,7 @@ export default function Projects() {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-xl text-surface-400 max-w-2xl mx-auto">
-            Real applications built for production. Edge-first, AI-powered, and scalable.
+            Real applications in production. From edge APIs to dockerized e-commerce backends.
           </p>
         </motion.div>
 
@@ -81,29 +106,29 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="group relative rounded-2xl bg-surface-900 border border-surface-800 overflow-hidden hover:border-surface-700 transition-all duration-300"
             >
               {/* Gradient header */}
-              <div className={`h-32 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
-                <project.icon className="w-12 h-12 text-white/90" />
+              <div className={`h-28 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+                <project.icon className="w-10 h-10 text-white/90" />
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-surface-100">
+              <div className="p-5">
+                <h3 className="text-lg font-semibold mb-2 text-surface-100">
                   {project.title}
                 </h3>
 
-                <p className="text-surface-400 text-sm mb-4">
+                <p className="text-surface-400 text-sm mb-4 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Tech stack */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 text-xs rounded-md bg-surface-800 text-surface-300"
+                      className="px-2 py-0.5 text-xs rounded-md bg-surface-800 text-surface-300"
                     >
                       {tech}
                     </span>
@@ -120,7 +145,7 @@ export default function Projects() {
                       className="inline-flex items-center gap-1 text-sm text-primary-400 hover:text-primary-300 transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Live Site
+                      Live
                     </a>
                   )}
                   {project.github && (
@@ -154,7 +179,7 @@ export default function Projects() {
             className="inline-flex items-center gap-2 text-surface-400 hover:text-surface-200 transition-colors"
           >
             <Github className="w-5 h-5" />
-            View all projects on GitHub
+            View all 50+ projects on GitHub
           </a>
         </motion.div>
       </div>

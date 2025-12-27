@@ -2,14 +2,18 @@ import { Github, Mail, ExternalLink } from 'lucide-react';
 
 const footerLinks = {
   services: [
-    { label: 'AI Platforms', href: '#services' },
-    { label: 'SaaS Development', href: '#services' },
-    { label: 'E-Commerce', href: '#services' },
-    { label: 'MVP Development', href: '#services' },
+    { label: 'AI Development', href: '#services' },
+    { label: 'Infrastructure & DevOps', href: '#services' },
+    { label: 'E-Commerce Platforms', href: '#services' },
+    { label: 'Edge Applications', href: '#services' },
+  ],
+  resources: [
+    { label: 'How We Work', href: '#how-we-work' },
+    { label: 'Why Cloudflare', href: '#cloudflare' },
+    { label: 'Tech Stack', href: '#stack' },
+    { label: 'Projects', href: '#work' },
   ],
   company: [
-    { label: 'Work', href: '#work' },
-    { label: 'Tech Stack', href: '#stack' },
     { label: 'GitHub', href: 'https://github.com/cozyartz', external: true },
     { label: 'Contact', href: '#contact' },
   ],
@@ -19,7 +23,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-surface-800 bg-surface-950">
       <div className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-5 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
             <a href="/" className="flex items-center gap-2 mb-4">
@@ -30,9 +34,9 @@ export default function Footer() {
                 Tech Flunky Labs
               </span>
             </a>
-            <p className="text-surface-400 mb-4 max-w-sm">
-              We build AI-powered platforms and edge-first applications that scale.
-              From concept to production on Cloudflare's global network.
+            <p className="text-surface-400 mb-4 max-w-sm text-sm">
+              AI-powered development and infrastructure. From edge applications to Docker deployments,
+              we build and manage production-grade systems on modern cloud infrastructure.
             </p>
             <div className="flex gap-4">
               <a
@@ -69,9 +73,26 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold text-surface-200 mb-4">Resources</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-surface-400 hover:text-surface-200 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-surface-200 mb-4">Company</h4>
+            <h4 className="font-semibold text-surface-200 mb-4">Connect</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -96,7 +117,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Tech Flunky Labs. All rights reserved.
           </p>
           <p className="text-sm text-surface-500">
-            Built with Astro &middot; Deployed on Cloudflare
+            Built with Astro + Claude Code &middot; Deployed on Cloudflare
           </p>
         </div>
       </div>
