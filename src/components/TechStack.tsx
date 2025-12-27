@@ -71,24 +71,24 @@ const technologies = [
 
 export default function TechStack() {
   return (
-    <section id="stack" className="py-24 px-6">
+    <section id="stack" className="py-16 sm:py-24 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Our <span className="gradient-text">Tech Stack</span>
           </h2>
-          <p className="text-xl text-surface-400 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-surface-400 max-w-3xl mx-auto px-2 sm:px-0">
             From edge serverless to bare-metal VMs. We choose the right tool for each job.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {technologies.map((category, categoryIndex) => (
             <motion.div
               key={category.category}
@@ -96,20 +96,20 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.05 }}
-              className="p-6 rounded-2xl bg-surface-900/50 border border-surface-800"
+              className="p-4 sm:p-6 rounded-2xl bg-surface-900/50 border border-surface-800"
             >
-              <h3 className="text-lg font-semibold mb-5 text-surface-200">
+              <h3 className="text-base sm:text-lg font-semibold mb-4 sm:mb-5 text-surface-200">
                 {category.category}
               </h3>
 
-              <div className="space-y-3">
+              <div className="space-y-2 sm:space-y-3">
                 {category.items.map((item) => (
                   <div
                     key={item.name}
-                    className="flex items-center justify-between py-2 border-b border-surface-800 last:border-0"
+                    className="flex items-center justify-between py-1.5 sm:py-2 border-b border-surface-800 last:border-0"
                   >
-                    <span className="font-medium text-surface-100 text-sm">{item.name}</span>
-                    <span className="text-xs text-surface-500">{item.description}</span>
+                    <span className="font-medium text-surface-100 text-xs sm:text-sm">{item.name}</span>
+                    <span className="text-xs text-surface-500 hidden sm:block">{item.description}</span>
                   </div>
                 ))}
               </div>
@@ -123,26 +123,29 @@ export default function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-primary-500/10 to-accent-500/10 border border-primary-500/20"
+          className="mt-10 sm:mt-16 p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-primary-500/10 to-accent-500/10 border border-primary-500/20"
         >
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary-400 mb-2">Edge</div>
-              <p className="text-surface-400 text-sm">
+              <div className="text-xl sm:text-3xl font-bold text-primary-400 mb-1 sm:mb-2">Edge</div>
+              <p className="text-surface-400 text-xs sm:text-sm hidden sm:block">
                 Cloudflare Workers for APIs, Pages for static sites, D1 for edge data
               </p>
+              <p className="text-surface-400 text-xs sm:hidden">Workers, Pages, D1</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-accent-400 mb-2">+</div>
-              <p className="text-surface-400 text-sm">
+              <div className="text-xl sm:text-3xl font-bold text-accent-400 mb-1 sm:mb-2">+</div>
+              <p className="text-surface-400 text-xs sm:text-sm hidden sm:block">
                 Connected via Hyperdrive & Tunnels for secure, fast communication
               </p>
+              <p className="text-surface-400 text-xs sm:hidden">Hyperdrive & Tunnels</p>
             </div>
             <div>
-              <div className="text-3xl font-bold text-primary-400 mb-2">Origin</div>
-              <p className="text-surface-400 text-sm">
+              <div className="text-xl sm:text-3xl font-bold text-primary-400 mb-1 sm:mb-2">Origin</div>
+              <p className="text-surface-400 text-xs sm:text-sm hidden sm:block">
                 Dedicated VMs running PostgreSQL, Redis, Docker containers
               </p>
+              <p className="text-surface-400 text-xs sm:hidden">VMs, PostgreSQL, Docker</p>
             </div>
           </div>
         </motion.div>

@@ -75,14 +75,14 @@ const projects = [
     description: 'Managed server infrastructure with Docker, PostgreSQL, Redis, automated backups, and Cloudflare Tunnel integration.',
     tech: ['Ubuntu', 'Docker', 'PostgreSQL', 'Tunnels'],
     icon: Server,
-    color: 'from-neutral-800 to-neutral-900',
+    color: 'from-[#c8e600] to-[#a0b800]',
     github: 'https://github.com/cozyartz/FunkyVM',
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="work" className="py-24 px-6 relative">
+    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 relative">
       {/* Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
@@ -94,15 +94,15 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-xl text-surface-400 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-surface-400 max-w-2xl mx-auto px-4 sm:px-0">
             Real applications in production. From edge APIs to dockerized e-commerce backends.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}

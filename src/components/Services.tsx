@@ -71,13 +71,18 @@ const services = [
 function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  const handleInteraction = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="group h-[320px] perspective-[1000px]"
+      className="group h-[280px] sm:h-[320px] perspective-[1000px] cursor-pointer"
+      onClick={handleInteraction}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
@@ -115,7 +120,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           </ul>
 
           <div className="absolute bottom-4 right-4 text-surface-600 text-xs">
-            Hover to flip
+            <span className="hidden sm:inline">Hover</span>
+            <span className="sm:hidden">Tap</span> to flip
           </div>
         </div>
 
@@ -142,7 +148,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 px-6 relative">
+    <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 relative">
       {/* Subtle grid background */}
       <div className="absolute inset-0 grid-pattern opacity-50" />
 
@@ -154,11 +160,11 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             What We <span className="gradient-text">Build & Manage</span>
           </h2>
-          <p className="text-xl text-surface-400 max-w-3xl mx-auto">
-            Full-stack development plus infrastructure expertise. Hover the cards to learn more.
+          <p className="text-lg sm:text-xl text-surface-400 max-w-3xl mx-auto px-4 sm:px-0">
+            Full-stack development plus infrastructure expertise. <span className="hidden sm:inline">Hover</span><span className="sm:hidden">Tap</span> the cards to learn more.
           </p>
         </motion.div>
 

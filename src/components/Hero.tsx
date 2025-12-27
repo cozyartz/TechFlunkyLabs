@@ -21,13 +21,13 @@ export default function Hero() {
       {/* Animated grid background */}
       <div className="absolute inset-0 grid-pattern" />
 
-      {/* Electric yellow gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e0ff00]/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#e0ff00]/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#e0ff00]/5 rounded-full blur-3xl" />
+      {/* Electric yellow gradient orbs - smaller on mobile */}
+      <div className="absolute top-1/4 left-1/4 w-48 md:w-96 h-48 md:h-96 bg-[#e0ff00]/10 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-40 md:w-80 h-40 md:h-80 bg-[#e0ff00]/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '-3s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] bg-[#e0ff00]/5 rounded-full blur-3xl" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
           {/* Left side - Text content */}
           <div className="text-center lg:text-left">
             <motion.div
@@ -46,7 +46,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
               We Build
               <span className="gradient-text block text-glow">Edge-First Software</span>
@@ -67,18 +67,18 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10"
+              className="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-3 sm:gap-4 mb-8 sm:mb-10"
             >
               <a
                 href="#contact"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black font-bold rounded-xl transition-all duration-300 glow hover:scale-105"
+                className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black font-bold rounded-xl transition-all duration-300 glow hover:scale-105"
               >
                 Start Your Project
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#work"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-black hover:bg-surface-900 text-[#e0ff00] font-semibold rounded-xl border border-[#e0ff00]/50 transition-all duration-300 hover:scale-105 hover:border-[#e0ff00]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black hover:bg-surface-900 text-[#e0ff00] font-semibold rounded-xl border border-[#e0ff00]/50 transition-all duration-300 hover:scale-105 hover:border-[#e0ff00]"
               >
                 View Our Work
               </a>
