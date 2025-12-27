@@ -55,10 +55,10 @@ export default function Contact() {
             href="https://github.com/cozyartz"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-8 rounded-2xl bg-surface-900/80 border border-surface-800 hover:border-accent-500/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.1)]"
+            className="group p-8 rounded-2xl bg-surface-900/80 border border-surface-800 hover:border-[#e0ff00]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(224,255,0,0.1)]"
           >
-            <div className="inline-flex p-3 rounded-xl bg-accent-500/10 mb-4 group-hover:bg-accent-500/20 transition-colors">
-              <Github className="w-6 h-6 text-accent-400" />
+            <div className="inline-flex p-3 rounded-xl bg-[#e0ff00]/10 mb-4 group-hover:bg-[#e0ff00]/20 transition-colors">
+              <Github className="w-6 h-6 text-[#e0ff00]" />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-white">
               GitHub
@@ -66,7 +66,7 @@ export default function Contact() {
             <p className="text-surface-400 mb-4">
               Check out our open source work and see how we build software.
             </p>
-            <span className="inline-flex items-center gap-2 text-accent-400 group-hover:text-accent-300 transition-colors">
+            <span className="inline-flex items-center gap-2 text-[#e0ff00] group-hover:text-[#f0ff4d] transition-colors">
               @cozyartz
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>

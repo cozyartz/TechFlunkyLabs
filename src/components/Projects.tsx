@@ -7,7 +7,7 @@ const projects = [
     description: 'E-commerce platform for a breast cancer non-profit. Medusa.js running on Docker with PostgreSQL, protected by Cloudflare Zero Trust.',
     tech: ['Medusa.js', 'Docker', 'PostgreSQL', 'Zero Trust'],
     icon: ShoppingBag,
-    color: 'from-pink-500 to-pink-600',
+    color: 'from-[#e0ff00] to-[#b8d900]',
     link: 'https://pink9to5.org',
     github: 'https://github.com/cozyartz/Pink9to5',
   },
@@ -25,7 +25,7 @@ const projects = [
     description: 'Full e-commerce stack with Medusa.js backend on dedicated VM, Cloudflare Pages frontend, and Hyperdrive database connections.',
     tech: ['Medusa.js', 'Docker', 'PostgreSQL', 'Hyperdrive'],
     icon: ShoppingBag,
-    color: 'from-green-500 to-green-600',
+    color: 'from-[#c8e600] to-[#a0b800]',
     link: 'https://nuggsandco.com',
     github: 'https://github.com/cozyartz/nuggsandco',
   },
@@ -43,7 +43,7 @@ const projects = [
     description: 'AI-powered business image generation platform. Generate professional lifestyle photos for products and marketing.',
     tech: ['TypeScript', 'AI Image Gen', 'Cloudflare', 'R2'],
     icon: Image,
-    color: 'from-orange-500 to-orange-600',
+    color: 'from-[#b8d900] to-[#8fa800]',
     github: 'https://github.com/cozyartz/splinterpic',
   },
   {
@@ -51,7 +51,7 @@ const projects = [
     description: 'Learning Management System with AI content generation, multi-tenant architecture, and compliance features.',
     tech: ['Next.js', 'Claude AI', 'PostgreSQL', 'Multi-tenant'],
     icon: BookOpen,
-    color: 'from-blue-500 to-blue-600',
+    color: 'from-[#e0ff00] to-[#c8e600]',
     github: 'https://github.com/cozyartz/AstroLMS',
   },
   {
@@ -59,7 +59,7 @@ const projects = [
     description: 'AI-powered RFP response system. Automates proposal generation with intelligent content matching and formatting.',
     tech: ['TypeScript', 'Claude AI', 'Cloudflare Workers'],
     icon: Bot,
-    color: 'from-purple-500 to-purple-600',
+    color: 'from-[#c8e600] to-[#b8d900]',
     github: 'https://github.com/cozyartz/RFPai-assistant',
   },
   {
@@ -67,7 +67,7 @@ const projects = [
     description: 'Professional AI-powered laser cutting platform for makers. File processing, pricing engine, and order management.',
     tech: ['TypeScript', 'Astro', 'AI', 'Cloudflare'],
     icon: Scissors,
-    color: 'from-red-500 to-red-600',
+    color: 'from-[#a0b800] to-[#8fa800]',
     github: 'https://github.com/cozyartz/cutgluebuild',
   },
   {
@@ -75,7 +75,7 @@ const projects = [
     description: 'Managed server infrastructure with Docker, PostgreSQL, Redis, automated backups, and Cloudflare Tunnel integration.',
     tech: ['Ubuntu', 'Docker', 'PostgreSQL', 'Tunnels'],
     icon: Server,
-    color: 'from-slate-600 to-slate-700',
+    color: 'from-neutral-800 to-neutral-900',
     github: 'https://github.com/cozyartz/FunkyVM',
   },
 ];
@@ -114,9 +114,9 @@ export default function Projects() {
             >
               {/* Gradient header */}
               <div className={`h-28 bg-gradient-to-br ${project.color} flex items-center justify-center relative overflow-hidden`}>
-                <project.icon className="w-10 h-10 text-white/90 relative z-10" />
+                <project.icon className="w-10 h-10 text-black/80 relative z-10" />
                 {/* Scan line effect */}
-                <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse" />
+                <div className="absolute inset-0 opacity-10 bg-gradient-to-b from-transparent via-black to-transparent animate-pulse" />
               </div>
 
               <div className="p-5">
