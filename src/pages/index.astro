@@ -16,7 +16,7 @@ import CookieConsent from '../components/CookieConsent';
 <Layout title="Tech Flunky Labs - AI-Powered Development & Infrastructure">
   <Header client:load />
   <main>
-    <Hero client:load />
+    <Hero client:only="react" />
     <Services client:visible />
     <HowWeWork client:visible />
     <InteractiveDivider client:visible />
