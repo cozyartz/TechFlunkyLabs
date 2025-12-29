@@ -17,6 +17,10 @@ const footerLinks = {
     { label: 'GitHub', href: 'https://github.com/cozyartz', external: true },
     { label: 'Contact', href: '#contact' },
   ],
+  legal: [
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Terms of Service', href: '/terms' },
+  ],
 };
 
 export default function Footer() {
@@ -107,6 +111,21 @@ export default function Footer() {
                   >
                     {link.label}
                     {link.external && <ExternalLink className="w-3 h-3" />}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            {/* Legal links */}
+            <h4 className="font-semibold text-white mt-6 mb-4">Legal</h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-surface-400 hover:text-[#e0ff00] transition-colors text-sm"
+                  >
+                    {link.label}
                   </a>
                 </li>
               ))}

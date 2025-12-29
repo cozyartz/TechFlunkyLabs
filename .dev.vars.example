@@ -1,0 +1,5 @@
+# Cloudflare Workers/Pages environment variables for local development
+# Copy this to .dev.vars and fill in actual values
+# DO NOT commit .dev.vars to git
+
+EMAIL_API_KEY=a3358de48a02eb70f3d112aa6bb42b69f57ba28ea3d5278e6af48db1201bea8f

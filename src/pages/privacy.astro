@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import CookieConsent from '../components/CookieConsent';
+---
+
+<Layout title="Privacy Policy - Tech Flunky Labs">
+  <Header client:load />
+  <main class="min-h-screen pt-24 pb-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <!-- Header -->
+      <div class="mb-12">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#e0ff00]/10 border border-[#e0ff00]/30 rounded-full text-[#e0ff00] text-sm font-medium mb-4">
+          Legal
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Privacy Policy</h1>
+        <p class="text-surface-400">Last updated: December 28, 2024</p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-invert prose-lg max-w-none">
+        <div class="space-y-8">
+          <!-- Introduction -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Introduction</h2>
+            <p class="text-surface-300 leading-relaxed">
+              Tech Flunky Labs ("we," "our," or "us") respects your privacy and is committed to protecting your personal data.
+              This privacy policy explains how we collect, use, disclose, and safeguard your information when you visit our website
+              <span class="text-[#e0ff00]">techflunkylabs.com</span> or engage our services.
+            </p>
+          </section>
+
+          <!-- Information We Collect -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Information We Collect</h2>
+
+            <h3 class="text-lg font-medium text-white mt-6 mb-3">Information You Provide</h3>
+            <ul class="list-disc list-inside text-surface-300 space-y-2">
+              <li>Contact information (name, email address, phone number)</li>
+              <li>Business information when you inquire about our services</li>
+              <li>Communications you send to us</li>
+              <li>Any other information you choose to provide</li>
+            </ul>
+
+            <h3 class="text-lg font-medium text-white mt-6 mb-3">Information Collected Automatically</h3>
+            <ul class="list-disc list-inside text-surface-300 space-y-2">
+              <li>Device and browser information</li>
+              <li>IP address and approximate location</li>
+              <li>Pages visited and time spent on our site</li>
+              <li>Referring website or source</li>
+              <li>Cookies and similar tracking technologies</li>
+            </ul>
+          </section>
+
+          <!-- Cookies -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Cookies and Tracking Technologies</h2>
+            <p class="text-surface-300 leading-relaxed mb-4">
+              We use cookies and similar technologies to enhance your experience on our website. These include:
+            </p>
+
+            <div class="space-y-4">
+              <div class="p-4 bg-surface-800/50 rounded-xl">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 text-xs bg-[#e0ff00]/20 text-[#e0ff00] rounded-full">Required</span>
+                  <h4 class="font-medium text-white">Necessary Cookies</h4>
+                </div>
+                <p class="text-surface-400 text-sm">
+                  Essential for the website to function properly. These cookies enable basic features like page navigation
+                  and access to secure areas of the website. The website cannot function properly without these cookies.
+                </p>
+              </div>
+
+              <div class="p-4 bg-surface-800/50 rounded-xl">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 text-xs bg-surface-600 text-surface-300 rounded-full">Optional</span>
+                  <h4 class="font-medium text-white">Analytics Cookies</h4>
+                </div>
+                <p class="text-surface-400 text-sm">
+                  Help us understand how visitors interact with our website by collecting and reporting information anonymously.
+                  This helps us improve our website and services.
+                </p>
+              </div>
+
+              <div class="p-4 bg-surface-800/50 rounded-xl">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="px-2 py-0.5 text-xs bg-surface-600 text-surface-300 rounded-full">Optional</span>
+                  <h4 class="font-medium text-white">Marketing Cookies</h4>
+                </div>
+                <p class="text-surface-400 text-sm">
+                  Used to track visitors across websites to display relevant advertisements. These cookies may be set by
+                  third-party advertising networks.
+                </p>
+              </div>
+            </div>
+
+            <p class="text-surface-300 mt-4">
+              You can manage your cookie preferences at any time using the cookie settings on our website.
+            </p>
+          </section>
+
+          <!-- How We Use Information -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">How We Use Your Information</h2>
+            <p class="text-surface-300 leading-relaxed mb-4">We use the information we collect to:</p>
+            <ul class="list-disc list-inside text-surface-300 space-y-2">
+              <li>Provide, operate, and maintain our website and services</li>
+              <li>Respond to your inquiries and fulfill your requests</li>
+              <li>Send you technical notices and support messages</li>
+              <li>Improve our website and develop new features</li>
+              <li>Analyze usage patterns and trends</li>
+              <li>Protect against fraud and unauthorized access</li>
+              <li>Comply with legal obligations</li>
+            </ul>
+          </section>
+
+          <!-- Data Sharing -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Information Sharing</h2>
+            <p class="text-surface-300 leading-relaxed mb-4">
+              We do not sell your personal information. We may share your information in the following circumstances:
+            </p>
+            <ul class="list-disc list-inside text-surface-300 space-y-2">
+              <li><strong class="text-white">Service Providers:</strong> With third-party vendors who assist in operating our website and providing services</li>
+              <li><strong class="text-white">Legal Requirements:</strong> When required by law or to protect our rights</li>
+              <li><strong class="text-white">Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+              <li><strong class="text-white">With Your Consent:</strong> When you have given us explicit permission</li>
+            </ul>
+          </section>
+
+          <!-- Data Security -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Data Security</h2>
+            <p class="text-surface-300 leading-relaxed">
+              We implement appropriate technical and organizational security measures to protect your personal information.
+              However, no method of transmission over the internet or electronic storage is 100% secure, and we cannot
+              guarantee absolute security.
+            </p>
+          </section>
+
+          <!-- Your Rights -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Your Rights</h2>
+            <p class="text-surface-300 leading-relaxed mb-4">
+              Depending on your location, you may have certain rights regarding your personal data, including:
+            </p>
+            <ul class="list-disc list-inside text-surface-300 space-y-2">
+              <li>The right to access your personal data</li>
+              <li>The right to rectify inaccurate data</li>
+              <li>The right to request deletion of your data</li>
+              <li>The right to restrict or object to processing</li>
+              <li>The right to data portability</li>
+              <li>The right to withdraw consent</li>
+            </ul>
+            <p class="text-surface-300 mt-4">
+              To exercise these rights, please contact us at <a href="mailto:privacy@techflunkylabs.com" class="text-[#e0ff00] hover:underline">privacy@techflunkylabs.com</a>.
+            </p>
+          </section>
+
+          <!-- Third-Party Services -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Third-Party Services</h2>
+            <p class="text-surface-300 leading-relaxed">
+              Our website may contain links to third-party websites and services. We are not responsible for the privacy
+              practices of these third parties. We encourage you to read their privacy policies before providing any
+              personal information.
+            </p>
+          </section>
+
+          <!-- Children's Privacy -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Children's Privacy</h2>
+            <p class="text-surface-300 leading-relaxed">
+              Our website and services are not directed to children under 13 years of age. We do not knowingly collect
+              personal information from children under 13. If you believe we have collected information from a child
+              under 13, please contact us immediately.
+            </p>
+          </section>
+
+          <!-- Updates -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Changes to This Policy</h2>
+            <p class="text-surface-300 leading-relaxed">
+              We may update this privacy policy from time to time. We will notify you of any changes by posting the new
+              privacy policy on this page and updating the "Last updated" date. We encourage you to review this policy
+              periodically.
+            </p>
+          </section>
+
+          <!-- Contact -->
+          <section class="p-6 bg-surface-900/50 rounded-2xl border border-surface-800">
+            <h2 class="text-2xl font-semibold text-white mb-4">Contact Us</h2>
+            <p class="text-surface-300 leading-relaxed mb-4">
+              If you have any questions about this privacy policy or our privacy practices, please contact us:
+            </p>
+            <div class="space-y-2 text-surface-300">
+              <p><strong class="text-white">Email:</strong> <a href="mailto:privacy@techflunkylabs.com" class="text-[#e0ff00] hover:underline">privacy@techflunkylabs.com</a></p>
+              <p><strong class="text-white">Website:</strong> <a href="https://techflunkylabs.com" class="text-[#e0ff00] hover:underline">techflunkylabs.com</a></p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-12 pt-8 border-t border-surface-800">
+        <a href="/" class="inline-flex items-center gap-2 text-surface-400 hover:text-[#e0ff00] transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
+  <CookieConsent client:load />
+</Layout>

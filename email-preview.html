@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFlunky Labs Email Templates Preview</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: #0d0d0d;
+      color: #f4f4f5;
+      padding: 40px 20px;
+      margin: 0;
+    }
+
+    .preview-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .preview-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .preview-header h1 {
+      font-size: 48px;
+      color: #e0ff00;
+      text-shadow: 0 0 30px rgba(224, 255, 0, 0.5);
+      margin-bottom: 16px;
+    }
+
+    .preview-header p {
+      font-size: 18px;
+      color: #a1a1aa;
+    }
+
+    .template-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .template-card {
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .template-header {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      padding: 20px 24px;
+      border-bottom: 2px solid #e0ff00;
+    }
+
+    .template-header h2 {
+      font-size: 24px;
+      color: #e0ff00;
+      margin: 0 0 8px 0;
+    }
+
+    .template-header p {
+      font-size: 14px;
+      color: #a1a1aa;
+      margin: 0;
+    }
+
+    .template-preview {
+      padding: 24px;
+      background: #000000;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+    }
+
+    .code-snippet {
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+
+    .code-snippet code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #d4d4d8;
+    }
+
+    @media (max-width: 1200px) {
+      .template-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <div class="preview-header">
+      <h1>⚡ Email Templates Preview</h1>
+      <p>TechFlunky Labs branded email templates with black & electric yellow aesthetic</p>
+    </div>
+
+    <div class="template-grid">
+      <!-- Welcome Email -->
+      <div class="template-card">
+        <div class="template-header">
+          <h2>Welcome Email</h2>
+          <p>Sent to new users when they sign up</p>
+        </div>
+        <div class="template-preview">
+          <iframe srcdoc='<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Space Grotesk", sans-serif; background-color: #000000; color: #f4f4f5; line-height: 1.6; }
+    .email-wrapper { width: 100%; background-color: #000000; padding: 40px 20px; }
+    .email-container { max-width: 600px; margin: 0 auto; background: #0d0d0d; border-radius: 16px; overflow: hidden; border: 1px solid #1a1a1a; }
+    .email-header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); padding: 32px 40px; text-align: center; border-bottom: 2px solid #e0ff00; }
+    .logo { font-size: 32px; font-weight: 700; color: #e0ff00; text-decoration: none; display: inline-block; letter-spacing: -1px; text-shadow: 0 0 20px rgba(224, 255, 0, 0.5); }
+    .logo-subtext { font-size: 12px; color: #a1a1aa; margin-top: 4px; letter-spacing: 2px; text-transform: uppercase; }
+    .email-body { padding: 40px; }
+    h1 { font-size: 28px; font-weight: 700; color: #f4f4f5; margin-bottom: 16px; line-height: 1.2; }
+    h2 { font-size: 22px; font-weight: 600; color: #f4f4f5; margin-bottom: 12px; }
+    p { font-size: 16px; color: #d4d4d8; margin-bottom: 16px; }
+    .button { display: inline-block; padding: 14px 32px; background-color: #e0ff00; color: #000000 !important; text-decoration: none; border-radius: 12px; font-weight: 600; box-shadow: 0 0 20px rgba(224, 255, 0, 0.3); }
+    .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 24px; margin: 20px 0; }
+    .highlight { background: linear-gradient(135deg, rgba(224, 255, 0, 0.1), rgba(224, 255, 0, 0.05)); border-left: 3px solid #e0ff00; padding: 16px; border-radius: 8px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      <div class="email-header">
+        <div class="logo">TF</div>
+        <div class="logo-subtext">Tech Flunky Labs</div>
+      </div>
+      <div class="email-body">
+        <h1>Welcome to TechFlunky Labs, Jane! ⚡</h1>
+        <p>We\'re excited to have you join our community of builders, makers, and tech enthusiasts.</p>
+        <div class="card">
+          <h2>What\'s Next?</h2>
+          <p style="margin-bottom: 12px;">Here are some things you can do to get started:</p>
+          <ul style="color: #d4d4d8; margin-left: 20px;">
+            <li style="margin-bottom: 8px;">Explore our latest blog posts and insights</li>
+            <li style="margin-bottom: 8px;">Check out our open-source projects</li>
+            <li style="margin-bottom: 8px;">Connect with us on social media</li>
+          </ul>
+        </div>
+        <div style="text-align: center; margin: 32px 0;">
+          <a href="#" class="button">Read Our Blog</a>
+        </div>
+        <div class="highlight">
+          <p style="margin-bottom: 8px;"><strong>Need help?</strong></p>
+          <p style="margin-bottom: 0;">Our team is here to help. Just reply to this email or reach out through our contact page.</p>
+        </div>
+        <p style="margin-top: 32px;">Happy building! 🚀</p>
+        <p style="margin-bottom: 0;"><strong>The TechFlunky Labs Team</strong></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'></iframe>
+        </div>
+      </div>
+
+      <!-- Blog Post Email -->
+      <div class="template-card">
+        <div class="template-header">
+          <h2>Blog Post Notification</h2>
+          <p>Alerts subscribers to new blog posts</p>
+        </div>
+        <div class="template-preview">
+          <iframe srcdoc='<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Space Grotesk", sans-serif; background-color: #000000; color: #f4f4f5; line-height: 1.6; }
+    .email-wrapper { width: 100%; background-color: #000000; padding: 40px 20px; }
+    .email-container { max-width: 600px; margin: 0 auto; background: #0d0d0d; border-radius: 16px; overflow: hidden; border: 1px solid #1a1a1a; }
+    .email-header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); padding: 32px 40px; text-align: center; border-bottom: 2px solid #e0ff00; }
+    .logo { font-size: 32px; font-weight: 700; color: #e0ff00; text-decoration: none; display: inline-block; letter-spacing: -1px; text-shadow: 0 0 20px rgba(224, 255, 0, 0.5); }
+    .logo-subtext { font-size: 12px; color: #a1a1aa; margin-top: 4px; letter-spacing: 2px; text-transform: uppercase; }
+    .email-body { padding: 40px; }
+    h1 { font-size: 28px; font-weight: 700; color: #f4f4f5; margin-bottom: 16px; line-height: 1.2; }
+    h2 { font-size: 22px; font-weight: 600; color: #f4f4f5; margin-bottom: 12px; }
+    p { font-size: 16px; color: #d4d4d8; margin-bottom: 16px; }
+    .button { display: inline-block; padding: 14px 32px; background-color: #e0ff00; color: #000000 !important; text-decoration: none; border-radius: 12px; font-weight: 600; box-shadow: 0 0 20px rgba(224, 255, 0, 0.3); }
+    .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 24px; margin: 20px 0; }
+    img { width: 100%; border-radius: 12px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      <div class="email-header">
+        <div class="logo">TF</div>
+        <div class="logo-subtext">Tech Flunky Labs</div>
+      </div>
+      <div class="email-body">
+        <h1>New Blog Post Published ⚡</h1>
+        <p>We just published a new post that we think you\'ll find interesting:</p>
+        <div class="card">
+          <h2>Building Edge-First Applications with Cloudflare</h2>
+          <p style="color: #a1a1aa; font-size: 14px; margin-bottom: 16px;">By Tech Flunky Team • January 15, 2024</p>
+          <p>Learn how to leverage Cloudflare Workers to build lightning-fast, globally distributed applications that deliver exceptional performance...</p>
+          <div style="margin-top: 24px;">
+            <a href="#" class="button">Read Full Post</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'></iframe>
+        </div>
+      </div>
+
+      <!-- Password Reset Email -->
+      <div class="template-card">
+        <div class="template-header">
+          <h2>Password Reset</h2>
+          <p>Secure password reset with time-limited link</p>
+        </div>
+        <div class="template-preview">
+          <iframe srcdoc='<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Space Grotesk", sans-serif; background-color: #000000; color: #f4f4f5; line-height: 1.6; }
+    .email-wrapper { width: 100%; background-color: #000000; padding: 40px 20px; }
+    .email-container { max-width: 600px; margin: 0 auto; background: #0d0d0d; border-radius: 16px; overflow: hidden; border: 1px solid #1a1a1a; }
+    .email-header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); padding: 32px 40px; text-align: center; border-bottom: 2px solid #e0ff00; }
+    .logo { font-size: 32px; font-weight: 700; color: #e0ff00; text-decoration: none; display: inline-block; letter-spacing: -1px; text-shadow: 0 0 20px rgba(224, 255, 0, 0.5); }
+    .logo-subtext { font-size: 12px; color: #a1a1aa; margin-top: 4px; letter-spacing: 2px; text-transform: uppercase; }
+    .email-body { padding: 40px; }
+    h1 { font-size: 28px; font-weight: 700; color: #f4f4f5; margin-bottom: 16px; line-height: 1.2; }
+    p { font-size: 16px; color: #d4d4d8; margin-bottom: 16px; }
+    .button { display: inline-block; padding: 14px 32px; background-color: #e0ff00; color: #000000 !important; text-decoration: none; border-radius: 12px; font-weight: 600; box-shadow: 0 0 20px rgba(224, 255, 0, 0.3); }
+    .highlight { background: linear-gradient(135deg, rgba(224, 255, 0, 0.1), rgba(224, 255, 0, 0.05)); border-left: 3px solid #e0ff00; padding: 16px; border-radius: 8px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      <div class="email-header">
+        <div class="logo">TF</div>
+        <div class="logo-subtext">Tech Flunky Labs</div>
+      </div>
+      <div class="email-body">
+        <h1>Reset Your Password 🔐</h1>
+        <p>We received a request to reset your password. Click the button below to create a new password:</p>
+        <div style="text-align: center; margin: 32px 0;">
+          <a href="#" class="button">Reset Password</a>
+        </div>
+        <div class="highlight">
+          <p style="margin-bottom: 8px;"><strong>⚠️ Security Notice</strong></p>
+          <p style="margin-bottom: 0;">This link will expire in 1 hour. If you didn\'t request a password reset, you can safely ignore this email.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'></iframe>
+        </div>
+      </div>
+
+      <!-- Newsletter Email -->
+      <div class="template-card">
+        <div class="template-header">
+          <h2>Newsletter</h2>
+          <p>Multi-section updates with custom content blocks</p>
+        </div>
+        <div class="template-preview">
+          <iframe srcdoc='<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "Space Grotesk", sans-serif; background-color: #000000; color: #f4f4f5; line-height: 1.6; }
+    .email-wrapper { width: 100%; background-color: #000000; padding: 40px 20px; }
+    .email-container { max-width: 600px; margin: 0 auto; background: #0d0d0d; border-radius: 16px; overflow: hidden; border: 1px solid #1a1a1a; }
+    .email-header { background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%); padding: 32px 40px; text-align: center; border-bottom: 2px solid #e0ff00; }
+    .logo { font-size: 32px; font-weight: 700; color: #e0ff00; text-decoration: none; display: inline-block; letter-spacing: -1px; text-shadow: 0 0 20px rgba(224, 255, 0, 0.5); }
+    .logo-subtext { font-size: 12px; color: #a1a1aa; margin-top: 4px; letter-spacing: 2px; text-transform: uppercase; }
+    .email-body { padding: 40px; }
+    h1 { font-size: 28px; font-weight: 700; color: #f4f4f5; margin-bottom: 16px; line-height: 1.2; }
+    h2 { font-size: 22px; font-weight: 600; color: #f4f4f5; margin-bottom: 12px; }
+    p { font-size: 16px; color: #d4d4d8; margin-bottom: 16px; }
+    .button-secondary { display: inline-block; padding: 14px 32px; background-color: #1a1a1a; color: #e0ff00 !important; text-decoration: none; border-radius: 12px; font-weight: 600; border: 1px solid #e0ff00; }
+    .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 24px; margin: 20px 0; }
+  </style>
+</head>
+<body>
+  <div class="email-wrapper">
+    <div class="email-container">
+      <div class="email-header">
+        <div class="logo">TF</div>
+        <div class="logo-subtext">Tech Flunky Labs</div>
+      </div>
+      <div class="email-body">
+        <h1>What We\'ve Been Building This Month</h1>
+        <div class="card">
+          <h2>New Feature: AI Code Reviews</h2>
+          <p style="margin-bottom: 0;">We launched automated code reviews powered by Claude AI to help catch issues before they reach production.</p>
+          <div style="margin-top: 16px;"><a href="#" class="button-secondary">Learn More</a></div>
+        </div>
+        <div class="card">
+          <h2>Performance Improvements</h2>
+          <p style="margin-bottom: 0;">Our edge infrastructure now delivers 40% faster response times globally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>'></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; padding: 40px 0; border-top: 1px solid #2a2a2a; margin-top: 40px;">
+      <p style="font-size: 14px; color: #a1a1aa;">
+        Open <code style="background: #1a1a1a; padding: 4px 8px; border-radius: 4px;">email-preview.html</code> in your browser to view these templates
+      </p>
+    </div>
+  </div>
+</body>
+</html>
