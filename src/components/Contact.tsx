@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Github, Calendar, ArrowRight } from 'lucide-react';
+import ContactForm from './ContactForm';
 
 export default function Contact() {
   return (
@@ -22,6 +23,9 @@ export default function Contact() {
             Ready to bring your idea to life? Let's discuss your project and find the perfect solution.
           </p>
         </motion.div>
+
+        {/* Contact Form with Spamidate Protection */}
+        <ContactForm />
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -73,39 +77,37 @@ export default function Contact() {
           </a>
         </motion.div>
 
-        {/* CTA */}
+        {/* Alternative Contact Methods */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-8 sm:mt-12 p-5 sm:p-8 rounded-2xl border border-[#a855f7]/30 transition-all duration-300 text-center"
-          style={{ backgroundColor: '#0d0d0d' }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-8"
         >
-          <Calendar className="w-7 sm:w-8 h-7 sm:h-8 text-[#c084fc] mx-auto mb-3 sm:mb-4" />
-          <h3 className="text-xl sm:text-2xl font-semibold mb-2 text-white">
-            Schedule a Discovery Call
-          </h3>
-          <p className="text-sm sm:text-base text-surface-400 mb-4 sm:mb-6 max-w-lg mx-auto">
-            30 minutes to discuss your project, explore solutions, and see if we're a good fit.
-            No obligations, just conversation.
-          </p>
-          <a
-            href="mailto:hello@techflunkylabs.com?subject=Discovery%20Call%20Request"
-            className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-white transition-all duration-300 hover:scale-105"
-            style={{ backgroundColor: '#a855f7' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#c084fc';
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(168,85,247,0.3)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#a855f7';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
-          >
-            Book a Call
-            <ArrowRight className="w-5 h-5" />
-          </a>
+          <p className="text-center text-surface-500 mb-4 text-sm">Or reach out directly:</p>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <a
+              href="mailto:hello@techflunkylabs.com"
+              className="group p-4 rounded-xl bg-surface-900/50 border border-surface-800 hover:border-[#a855f7]/50 transition-all duration-300 text-center"
+            >
+              <Mail className="w-5 h-5 text-[#c084fc] mx-auto mb-2" />
+              <p className="text-sm text-surface-300 group-hover:text-white transition-colors">
+                hello@techflunkylabs.com
+              </p>
+            </a>
+            <a
+              href="https://github.com/cozyartz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group p-4 rounded-xl bg-surface-900/50 border border-surface-800 hover:border-[#a855f7]/50 transition-all duration-300 text-center"
+            >
+              <Github className="w-5 h-5 text-[#c084fc] mx-auto mb-2" />
+              <p className="text-sm text-surface-300 group-hover:text-white transition-colors">
+                @cozyartz
+              </p>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

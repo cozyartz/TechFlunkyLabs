@@ -1,8 +1,17 @@
 import { motion } from 'framer-motion';
-import { Bot, Globe, ShoppingCart, Server, Shield, Cpu, Container, Cloud, Wrench } from 'lucide-react';
+import { Bot, Globe, ShoppingCart, Server, Shield, Cpu, Container, Cloud, Wrench, Mail } from 'lucide-react';
 import { useState } from 'react';
 
 const services = [
+  {
+    icon: Mail,
+    title: 'Email Validation API',
+    description: 'Our flagship product: Spamidate - AI-powered email validation with 16 validation checks and sub-100ms response times.',
+    features: ['16 Validation Checks', 'Cloudflare AI Integration', 'Global Edge Deployment'],
+    backContent: 'Validate emails with 99.9% accuracy using syntax checks, domain verification, disposable detection, spam trap analysis, and AI-powered risk scoring. Used by developers worldwide.',
+    featured: true,
+    link: 'https://spamidate.com',
+  },
   {
     icon: Bot,
     title: 'AI-Powered Development',
@@ -75,13 +84,15 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     setIsFlipped(!isFlipped);
   };
 
+  const isFeatured = service.featured;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="group h-[280px] sm:h-[320px] perspective-[1000px] cursor-pointer"
+      className={`group h-[280px] sm:h-[320px] perspective-[1000px] cursor-pointer ${isFeatured ? 'ring-2 ring-[#e0ff00]/30 rounded-2xl' : ''}`}
       onClick={handleInteraction}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -95,12 +106,18 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       >
         {/* Front of card */}
         <div
-          className="absolute inset-0 p-6 rounded-2xl bg-surface-900/80 border border-surface-800 hover:border-[#e0ff00]/30 transition-colors"
+          className={`absolute inset-0 p-6 rounded-2xl bg-surface-900/80 border ${isFeatured ? 'border-[#e0ff00]/50' : 'border-surface-800'} hover:border-[#e0ff00]/30 transition-colors`}
           style={{ backfaceVisibility: 'hidden' }}
         >
-          <div className="inline-flex p-3 rounded-xl mb-4 bg-[#e0ff00]/10">
+          <div className={`inline-flex p-3 rounded-xl mb-4 ${isFeatured ? 'bg-[#e0ff00]/20 glow-subtle' : 'bg-[#e0ff00]/10'}`}>
             <service.icon className="w-6 h-6 text-[#e0ff00]" />
           </div>
+
+          {isFeatured && (
+            <span className="absolute top-4 right-4 px-2 py-1 text-xs font-semibold bg-[#e0ff00] text-black rounded-md">
+              Featured
+            </span>
+          )}
 
           <h3 className="text-xl font-semibold mb-3 text-white">
             {service.title}
@@ -137,9 +154,20 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           <h3 className="text-xl font-semibold mb-4 text-[#e0ff00]">
             {service.title}
           </h3>
-          <p className="text-surface-200 text-sm leading-relaxed">
+          <p className="text-surface-200 text-sm leading-relaxed mb-4">
             {service.backContent}
           </p>
+          {service.link && (
+            <a
+              href={service.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-2 text-sm font-semibold text-[#e0ff00] hover:text-[#f0ff4d] transition-colors mt-auto"
+            >
+              Learn More →
+            </a>
+          )}
         </div>
       </motion.div>
     </motion.div>

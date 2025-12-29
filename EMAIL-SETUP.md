@@ -11,20 +11,21 @@ This project uses the centralized Email API service for sending emails from `nor
 # Copy the example file
 cp .dev.vars.example .dev.vars
 
-# The file already contains the correct API key
-# EMAIL_API_KEY=a3358de48a02eb70f3d112aa6bb42b69f57ba28ea3d5278e6af48db1201bea8f
+# Edit .dev.vars and add your API key
+# Get the API key from the VM at: /opt/email-api/.env
 ```
 
 **For Cloudflare Pages Deployment:**
 ```bash
 # Set the environment variable (run once)
 npx wrangler pages secret put EMAIL_API_KEY
-# When prompted, paste: a3358de48a02eb70f3d112aa6bb42b69f57ba28ea3d5278e6af48db1201bea8f
+# When prompted, paste the API key from the VM
 ```
 
 Or set it in the Cloudflare dashboard:
 1. Go to Workers & Pages > tflabs > Settings > Environment Variables
-2. Add variable: `EMAIL_API_KEY` = `a3358de48a02eb70f3d112aa6bb42b69f57ba28ea3d5278e6af48db1201bea8f`
+2. Add variable: `EMAIL_API_KEY` = `<your_api_key_from_vm>`
+3. Get the key from the VM at `/opt/email-api/.env`
 
 ## Usage
 
