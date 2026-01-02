@@ -2,16 +2,16 @@ import { Github, Mail, ExternalLink } from 'lucide-react';
 
 const footerLinks = {
   services: [
-    { label: 'AI Development', href: '#services' },
-    { label: 'Infrastructure & DevOps', href: '#services' },
-    { label: 'E-Commerce Platforms', href: '#services' },
-    { label: 'Edge Applications', href: '#services' },
+    { label: 'Edge-First Web & APIs', href: '#services' },
+    { label: 'AI & MCP Agents', href: '#services' },
+    { label: 'E-Commerce & Payments', href: '#services' },
+    { label: 'Connected Hardware & IoT', href: '#services' },
   ],
   resources: [
+    { label: 'Who We Help', href: '#who-we-help' },
     { label: 'How We Work', href: '#how-we-work' },
-    { label: 'Why Cloudflare', href: '#cloudflare' },
-    { label: 'Tech Stack', href: '#stack' },
     { label: 'Projects', href: '#work' },
+    { label: 'About', href: '#about' },
   ],
   company: [
     { label: 'GitHub', href: 'https://github.com/cozyartz', external: true },
@@ -38,12 +38,12 @@ export default function Footer() {
                 TF
               </div>
               <span className="font-bold text-lg text-white group-hover:text-[#e0ff00] transition-colors">
-                Tech Flunky Labs
+                TechFlunky Labs
               </span>
             </a>
             <p className="text-surface-400 mb-4 max-w-sm text-sm">
-              AI-powered development and infrastructure. From edge applications to Docker deployments,
-              we build and manage production-grade systems.
+              Edge, AI, and hardware for real-world products. A tiny development studio that ships
+              Cloudflare-native apps, AI agents, and connected hardware prototypes.
             </p>
             <div className="flex gap-4">
               <a
@@ -136,7 +136,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-surface-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-surface-500">
-            &copy; {new Date().getFullYear()} Tech Flunky Labs. All rights reserved.
+            &copy; {new Date().getFullYear()} TechFlunky Labs. All rights reserved.
           </p>
           <p className="text-sm text-surface-500">
             Built with <span className="text-[#e0ff00]">Astro + Three.js + Claude Code</span> &middot; Deployed on Cloudflare

@@ -1,37 +1,43 @@
 import { motion } from 'framer-motion';
-import { Bot, Globe, ShoppingCart, Server, Shield, Cpu, Container, Cloud, Wrench, Mail } from 'lucide-react';
+import { Bot, Globe, ShoppingCart, Server, Shield, Cpu, Container, Cloud, Wrench, Database } from 'lucide-react';
 import { useState } from 'react';
 
 const services = [
   {
-    icon: Mail,
-    title: 'Email Validation API',
-    description: 'Our flagship product: Spamidate - AI-powered email validation with 16 validation checks and sub-100ms response times.',
-    features: ['16 Validation Checks', 'Cloudflare AI Integration', 'Global Edge Deployment'],
-    backContent: 'Validate emails with 99.9% accuracy using syntax checks, domain verification, disposable detection, spam trap analysis, and AI-powered risk scoring. Used by developers worldwide.',
+    icon: Globe,
+    title: 'Edge-First Web & APIs',
+    description: 'Build fast, resilient apps on Cloudflare Workers, Pages, D1, R2, KV, and Hyperdrive—sub-100ms global responses.',
+    features: ['Marketing Sites & Dashboards', 'REST/GraphQL APIs', 'Background Jobs & Cron'],
+    backContent: 'Deploy to 300+ edge locations worldwide. Auto-scaling, built-in security, and lightning-fast responses no matter where your users are. No cold starts.',
     featured: true,
-    link: 'https://spamidate.com',
   },
   {
     icon: Bot,
-    title: 'AI-Powered Development',
-    description: 'We build WITH AI, not just about AI. Claude Code powers our workflow for rapid, high-quality development.',
-    features: ['Claude Code Integration', 'LLM-Powered Features', 'AI Validation Systems'],
-    backContent: 'From prompt engineering to full AI agent development. We integrate Claude, GPT-4, and Cloudflare AI into production applications.',
+    title: 'AI & MCP Agent Development',
+    description: 'Design AI systems that actually plug into your business, not just chatbots.',
+    features: ['Claude & GPT Integrations', 'Custom MCP Servers', 'RAG for Docs & Policies'],
+    backContent: 'Connect CRMs, ticketing, data stores, and hardware to LLMs. Retrieval-augmented generation for knowledge bases. Real business value, not demos.',
+  },
+  {
+    icon: ShoppingCart,
+    title: 'E-Commerce & Payments',
+    description: 'Ship commerce flows that fit your business instead of forcing you into a template.',
+    features: ['Headless Medusa.js', 'Stripe & Subscriptions', 'Donor Funnels'],
+    backContent: 'Complete ownership of your stack. No monthly platform fees. Works for digital products, physical goods, and hybrid nonprofit/commercial offerings.',
   },
   {
     icon: Server,
-    title: 'Infrastructure & DevOps',
-    description: 'Production-grade server setup, Docker containerization, and automated deployments.',
-    features: ['VM Setup & Management', 'Docker & Containers', 'CI/CD Pipelines'],
-    backContent: 'Ubuntu servers, Docker Compose orchestration, automated backups, and monitoring. We manage the full stack.',
+    title: 'Data & Infrastructure',
+    description: 'Production-grade infrastructure without a DevOps department.',
+    features: ['Dockerized Apps', 'PostgreSQL & Redis', 'Automated Backups'],
+    backContent: 'Managed Ubuntu servers, secure reverse proxies, Cloudflare Tunnels, and zero-trust access. Monitoring and resilience built in.',
   },
   {
-    icon: Globe,
-    title: 'Edge-First Applications',
-    description: 'Ultra-fast applications on Cloudflare\'s global network. Sub-100ms response times.',
-    features: ['Cloudflare Workers', 'D1 & R2 Storage', 'Global CDN'],
-    backContent: 'Deploy to 300+ edge locations worldwide. Your users get lightning-fast responses no matter where they are.',
+    icon: Cpu,
+    title: 'Connected Hardware & IoT',
+    description: 'Bring the physical world online with affordable, hackable hardware.',
+    features: ['Raspberry Pi & ESP32', 'Sensor Data Streaming', 'Drone Integrations'],
+    backContent: 'Rapid prototyping with Onion Omega2+ boards and flight control stacks. Location check-ins, access control, mapping, imaging, and field data collection.',
   },
   {
     icon: Container,
@@ -41,18 +47,11 @@ const services = [
     backContent: 'Reproducible environments from dev to production. Multi-container applications with proper networking and volumes.',
   },
   {
-    icon: ShoppingCart,
-    title: 'E-Commerce Platforms',
-    description: 'Modern headless commerce with Medusa.js on your own infrastructure.',
-    features: ['Medusa.js Storefronts', 'Payment Integration', 'Inventory Management'],
-    backContent: 'Complete ownership of your e-commerce stack. No monthly fees, no vendor lock-in, infinite customization.',
-  },
-  {
     icon: Cloud,
     title: 'Multi-Cloud Architecture',
     description: 'Strategic use of multiple cloud providers. Cloudflare for edge, VMs for databases.',
     features: ['Cloudflare Edge', 'Dedicated Servers', 'Hybrid Deployments'],
-    backContent: 'Best of both worlds: edge computing for speed, dedicated servers for cost-effective persistent workloads.',
+    backContent: 'Best of both worlds: edge computing for speed, dedicated servers for cost-effective persistent workloads. 60-80% lower hosting costs.',
   },
   {
     icon: Shield,
@@ -62,7 +61,7 @@ const services = [
     backContent: 'Protect internal tools without VPNs. SSO integration, granular access control, and encrypted connections.',
   },
   {
-    icon: Cpu,
+    icon: Database,
     title: 'Database Architecture',
     description: 'PostgreSQL on dedicated servers with Hyperdrive connection pooling.',
     features: ['PostgreSQL Setup', 'Automated Backups', 'Hyperdrive Pooling'],

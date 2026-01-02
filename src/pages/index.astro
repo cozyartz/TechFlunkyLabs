@@ -2,27 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import WhoWeHelp from '../components/WhoWeHelp';
 import Services from '../components/Services';
+import FeaturedClient from '../components/FeaturedClient';
 import HowWeWork from '../components/HowWeWork';
 import InteractiveDivider from '../components/InteractiveDivider';
 import Projects from '../components/Projects';
 import WhyCloudflare from '../components/WhyCloudflare';
-import TechStack from '../components/TechStack';
+import About from '../components/About';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import CookieConsent from '../components/CookieConsent';
 ---
 
-<Layout title="Tech Flunky Labs - AI-Powered Development & Infrastructure">
+<Layout title="TechFlunky Labs - Edge, AI & Hardware for Real-World Products">
   <Header client:load />
   <main>
     <Hero client:only="react" />
+    <WhoWeHelp client:visible />
     <Services client:visible />
+    <FeaturedClient client:visible />
     <HowWeWork client:visible />
     <InteractiveDivider client:visible />
     <Projects client:visible />
     <WhyCloudflare client:visible />
-    <TechStack client:visible />
+    <About client:visible />
     <Contact client:visible />
   </main>
   <Footer />

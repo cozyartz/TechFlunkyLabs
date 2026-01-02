@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Zap, Cloud, Code2, Server, Bot } from 'lucide-react';
+import { ArrowRight, Zap, Cloud, Cpu, Bot, Radio } from 'lucide-react';
 import { Suspense, lazy } from 'react';
 
 // Lazy load the 3D component for better performance
@@ -38,7 +38,7 @@ export default function Hero() {
             >
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/80 border border-[#e0ff00]/30 text-sm text-[#e0ff00] backdrop-blur-sm glitch">
                 <Zap className="w-4 h-4" />
-                AI-Powered Development Studio
+                Development Studio
               </span>
             </motion.div>
 
@@ -48,9 +48,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             >
-              We Build
-              <span className="gradient-text block text-glow">Edge-First Software</span>
-              That Scales
+              TechFlunky Labs
+              <span className="gradient-text block text-glow text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2">Edge, AI & Hardware</span>
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-surface-300 mt-2">for Real-World Products</span>
             </motion.h1>
 
             <motion.p
@@ -59,8 +59,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-lg md:text-xl text-surface-400 max-w-xl mx-auto lg:mx-0 mb-8"
             >
-              From AI-powered platforms to production infrastructure.
-              We deliver complete solutions—code, servers, and everything in between.
+              A tiny <span className="text-[#e0ff00]">development studio</span> that ships Cloudflare-native apps, AI agents, and connected hardware prototypes for founders, nonprofits, and teams who need working software—not pitch decks.
             </motion.p>
 
             <motion.div
@@ -73,14 +72,14 @@ export default function Hero() {
                 href="#contact"
                 className="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black font-bold rounded-xl transition-all duration-300 glow hover:scale-105"
               >
-                Start Your Project
+                Book a Build Consult
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#work"
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black hover:bg-surface-900 text-[#e0ff00] font-semibold rounded-xl border border-[#e0ff00]/50 transition-all duration-300 hover:scale-105 hover:border-[#e0ff00]"
               >
-                View Our Work
+                See Recent Projects
               </a>
             </motion.div>
 
@@ -93,9 +92,9 @@ export default function Hero() {
             >
               {[
                 { icon: Cloud, label: 'Cloudflare Edge' },
-                { icon: Server, label: 'Infrastructure' },
-                { icon: Bot, label: 'AI Integration' },
-                { icon: Code2, label: 'Full-Stack' },
+                { icon: Bot, label: 'AI Agents' },
+                { icon: Cpu, label: 'IoT & Hardware' },
+                { icon: Radio, label: 'Nonprofit-Friendly' },
               ].map(({ icon: Icon, label }) => (
                 <span
                   key={label}

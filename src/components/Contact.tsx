@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Github, Calendar, ArrowRight } from 'lucide-react';
+import { Mail, Github, ArrowRight } from 'lucide-react';
 import ContactForm from './ContactForm';
 
 export default function Contact() {
@@ -17,10 +17,13 @@ export default function Contact() {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Let's Build <span className="gradient-text">Together</span>
+            Ready to <span className="gradient-text">Build?</span>
           </h2>
-          <p className="text-lg sm:text-xl text-surface-400 max-w-2xl mx-auto px-2 sm:px-0">
-            Ready to bring your idea to life? Let's discuss your project and find the perfect solution.
+          <p className="text-lg sm:text-xl text-surface-400 max-w-2xl mx-auto px-2 sm:px-0 mb-4">
+            Tell us what you're trying to ship in the next 90 days.
+          </p>
+          <p className="text-sm text-surface-500 max-w-xl mx-auto px-2 sm:px-0">
+            Include who you are, who you serve, what you want to build or fix, and any deadlines, budget windows, or hardware you already have. You'll get a short response with an architecture sketch, rough timeline, and honest assessment—no sales deck, no pressure.
           </p>
         </motion.div>
 

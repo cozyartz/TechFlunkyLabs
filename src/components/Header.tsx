@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Github } from 'lucide-react';
 
 const navLinks = [
+  { href: '#who-we-help', label: 'Who We Help' },
   { href: '#services', label: 'Services' },
   { href: '#how-we-work', label: 'How We Work' },
   { href: '#work', label: 'Projects' },
-  { href: '#cloudflare', label: 'Cloudflare' },
-  { href: '#stack', label: 'Tech Stack' },
+  { href: '#about', label: 'About' },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -37,7 +37,7 @@ export default function Header() {
               TF
             </div>
             <span className="font-bold text-lg text-white hidden sm:block group-hover:text-[#e0ff00] transition-colors">
-              Tech Flunky Labs
+              TechFlunky Labs
             </span>
           </a>
 
@@ -64,7 +64,7 @@ export default function Header() {
               href="#contact"
               className="px-5 py-2.5 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black text-sm font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(224,255,0,0.4)]"
             >
-              Get Started
+              Book a Consult
             </a>
           </div>
 
@@ -103,7 +103,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="inline-block mt-4 px-5 py-2.5 bg-[#e0ff00] hover:bg-[#f0ff4d] text-black font-bold rounded-lg transition-colors"
                 >
-                  Get Started
+                  Book a Consult
                 </a>
               </div>
             </motion.div>
