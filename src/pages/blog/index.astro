@@ -1,0 +1,140 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import PostGrid from '../../components/blog/PostGrid';
+import Pagination from '../../components/blog/Pagination';
+import SearchBar from '../../components/blog/SearchBar';
+import { getPublishedPosts, getCategories } from '../../lib/blog';
+import type { BlogFilters } from '../../lib/blog';
+
+export const prerender = false;
+
+// Get query params
+const url = new URL(Astro.request.url);
+const page = parseInt(url.searchParams.get('page') || '1');
+const category = url.searchParams.get('category') || undefined;
+
+// Get database from Cloudflare runtime
+const db = Astro.locals.runtime?.env?.DB;
+
+let posts: Awaited<ReturnType<typeof getPublishedPosts>> = {
+  posts: [],
+  total: 0,
+  page: 1,
+  pageSize: 10,
+  totalPages: 0,
+};
+
+let categories: Awaited<ReturnType<typeof getCategories>> = [];
+
+if (db) {
+  const filters: BlogFilters = {
+    page,
+    pageSize: 10,
+    category,
+  };
+
+  [posts, categories] = await Promise.all([
+    getPublishedPosts(db, filters),
+    getCategories(db),
+  ]);
+}
+---
+
+<BlogLayout
+  title="Blog"
+  description="Insights on edge computing, AI integration, and modern web development from TechFlunky Labs."
+>
+  <div class="min-h-screen bg-black">
+    <!-- Hero Section -->
+    <section class="relative py-16 md:py-24 border-b border-surface-800">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-3xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            The <span class="text-[#e0ff00]">TechFlunky</span> Blog
+          </h1>
+          <p class="text-lg text-surface-400 mb-8">
+            Case studies, technical deep-dives, and practical insights on edge computing,
+            AI integration, and modern web development.
+          </p>
+
+          <SearchBar client:load />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-12 md:py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="lg:grid lg:grid-cols-4 lg:gap-12">
+          <!-- Sidebar -->
+          <aside class="hidden lg:block">
+            <div class="sticky top-24">
+              <h3 class="text-sm font-semibold text-surface-300 uppercase tracking-wider mb-4">
+                Categories
+              </h3>
+              <nav class="space-y-2">
+                <a
+                  href="/blog"
+                  class={`block py-2 px-3 rounded-lg text-sm transition-colors ${
+                    !category
+                      ? 'bg-[#e0ff00]/10 text-[#e0ff00]'
+                      : 'text-surface-400 hover:text-white hover:bg-surface-800'
+                  }`}
+                >
+                  All Posts
+                </a>
+                {categories.map((cat) => (
+                  <a
+                    href={`/blog?category=${encodeURIComponent(cat.name)}`}
+                    class={`block py-2 px-3 rounded-lg text-sm transition-colors ${
+                      category === cat.name
+                        ? 'bg-[#e0ff00]/10 text-[#e0ff00]'
+                        : 'text-surface-400 hover:text-white hover:bg-surface-800'
+                    }`}
+                  >
+                    {cat.name}
+                    <span class="ml-2 text-surface-600">({cat.postCount})</span>
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </aside>
+
+          <!-- Posts Grid -->
+          <div class="lg:col-span-3">
+            {category && (
+              <div class="mb-8">
+                <span class="text-surface-500">Showing posts in:</span>
+                <span class="ml-2 text-[#e0ff00] font-medium">{category}</span>
+                <a
+                  href="/blog"
+                  class="ml-4 text-sm text-surface-400 hover:text-white underline"
+                >
+                  Clear filter
+                </a>
+              </div>
+            )}
+
+            {posts.posts.length > 0 ? (
+              <>
+                <PostGrid posts={posts.posts} client:load />
+                <Pagination
+                  currentPage={posts.page}
+                  totalPages={posts.totalPages}
+                  client:load
+                />
+              </>
+            ) : (
+              <div class="text-center py-16">
+                <p class="text-xl text-surface-400 mb-4">No posts yet</p>
+                <p class="text-surface-500">
+                  We're working on some great content. Check back soon!
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BlogLayout>

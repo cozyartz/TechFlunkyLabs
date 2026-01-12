@@ -2,3 +2,9 @@ name = "tflabs"
 compatibility_date = "2024-12-01"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./dist"
+
+# D1 Database binding (shared with astro-crm for blog content)
+[[d1_databases]]
+binding = "DB"
+database_name = "tflabs-cms"
+database_id = "75ddfb15-2d01-47dc-b525-343d55c757c4"

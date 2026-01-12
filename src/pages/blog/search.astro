@@ -1,0 +1,84 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import PostGrid from '../../components/blog/PostGrid';
+import SearchBar from '../../components/blog/SearchBar';
+import { searchPosts } from '../../lib/blog';
+import { ArrowLeft, Search } from 'lucide-react';
+
+export const prerender = false;
+
+const url = new URL(Astro.request.url);
+const query = url.searchParams.get('q') || '';
+
+const db = Astro.locals.runtime?.env?.DB;
+
+let results: Awaited<ReturnType<typeof searchPosts>> = [];
+
+if (db && query.trim()) {
+  results = await searchPosts(db, query.trim(), 20);
+}
+---
+
+<BlogLayout
+  title={query ? `Search: ${query}` : 'Search'}
+  description={`Search results for "${query}" on TechFlunky Labs blog.`}
+>
+  <div class="min-h-screen bg-black">
+    <section class="py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-6">
+        <!-- Back link -->
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-surface-400 hover:text-[#e0ff00] transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Blog
+        </a>
+
+        <h1 class="text-3xl md:text-4xl font-bold text-white mb-8">
+          Search Posts
+        </h1>
+
+        <div class="mb-12">
+          <SearchBar initialQuery={query} client:load />
+        </div>
+
+        {query ? (
+          <>
+            <p class="text-surface-400 mb-8">
+              {results.length > 0 ? (
+                <>Found <span class="text-white font-medium">{results.length}</span> result{results.length !== 1 ? 's' : ''} for "<span class="text-[#e0ff00]">{query}</span>"</>
+              ) : (
+                <>No results found for "<span class="text-[#e0ff00]">{query}</span>"</>
+              )}
+            </p>
+
+            {results.length > 0 ? (
+              <PostGrid posts={results} featuredFirst={false} client:load />
+            ) : (
+              <div class="text-center py-12">
+                <Search className="w-16 h-16 text-surface-700 mx-auto mb-4" />
+                <p class="text-surface-400 mb-4">
+                  Try adjusting your search terms or browse all posts.
+                </p>
+                <a
+                  href="/blog"
+                  class="inline-flex items-center gap-2 px-6 py-3 bg-[#e0ff00] text-black font-semibold rounded-xl hover:bg-[#f0ff4d] transition-colors"
+                >
+                  View All Posts
+                </a>
+              </div>
+            )}
+          </>
+        ) : (
+          <div class="text-center py-12">
+            <Search className="w-16 h-16 text-surface-700 mx-auto mb-4" />
+            <p class="text-surface-400">
+              Enter a search term to find posts.
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  </div>
+</BlogLayout>

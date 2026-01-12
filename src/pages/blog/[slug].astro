@@ -1,0 +1,169 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import SocialShare from '../../components/blog/SocialShare';
+import TagList from '../../components/blog/TagList';
+import CategoryBadge from '../../components/blog/CategoryBadge';
+import RelatedPosts from '../../components/blog/RelatedPosts';
+import { getPostBySlug, getRelatedPosts, incrementViewCount } from '../../lib/blog';
+import { Clock, Calendar, Eye, ArrowLeft, User } from 'lucide-react';
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+// Get database from Cloudflare runtime
+const db = Astro.locals.runtime?.env?.DB;
+
+if (!db || !slug) {
+  return Astro.redirect('/blog');
+}
+
+const post = await getPostBySlug(db, slug);
+
+if (!post) {
+  return Astro.redirect('/blog');
+}
+
+// Increment view count (fire and forget)
+incrementViewCount(db, post.id).catch(() => {});
+
+// Get related posts
+const relatedPosts = await getRelatedPosts(db, post.id, 3);
+
+const formattedDate = post.publishedAt
+  ? new Date(post.publishedAt).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
+  : '';
+
+const fullUrl = `https://techflunkylabs.com/blog/${slug}`;
+---
+
+<BlogLayout
+  title={post.title}
+  description={post.metaDescription || post.excerpt || undefined}
+  ogImage={post.featuredImage || undefined}
+  ogType="article"
+  publishedAt={post.publishedAt || undefined}
+  author={post.authorName}
+>
+  <!-- Reading progress bar -->
+  <div id="reading-progress" class="reading-progress"></div>
+
+  <article class="min-h-screen bg-black">
+    <!-- Header -->
+    <header class="pt-8 pb-12 border-b border-surface-800">
+      <div class="max-w-4xl mx-auto px-6">
+        <!-- Back link -->
+        <a
+          href="/blog"
+          class="inline-flex items-center gap-2 text-surface-400 hover:text-[#e0ff00] transition-colors mb-8"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          Back to Blog
+        </a>
+
+        <!-- Category -->
+        {post.category && (
+          <div class="mb-4">
+            <CategoryBadge category={post.category} size="md" client:load />
+          </div>
+        )}
+
+        <!-- Title -->
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+          {post.title}
+        </h1>
+
+        <!-- Meta info -->
+        <div class="flex flex-wrap items-center gap-6 text-surface-400">
+          <div class="flex items-center gap-2">
+            <User className="w-4 h-4" />
+            <span>{post.authorName}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <Calendar className="w-4 h-4" />
+            <time datetime={post.publishedAt || undefined}>{formattedDate}</time>
+          </div>
+          <div class="flex items-center gap-2">
+            <Clock className="w-4 h-4" />
+            <span>{post.readingTime} min read</span>
+          </div>
+          {post.viewCount > 0 && (
+            <div class="flex items-center gap-2">
+              <Eye className="w-4 h-4" />
+              <span>{post.viewCount.toLocaleString()} views</span>
+            </div>
+          )}
+        </div>
+
+        <!-- Featured image -->
+        {post.featuredImage && (
+          <div class="mt-8 -mx-6 md:mx-0">
+            <img
+              src={post.featuredImage}
+              alt={post.title}
+              class="w-full rounded-none md:rounded-2xl"
+            />
+          </div>
+        )}
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="py-12 md:py-16">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="blog-content" set:html={post.content} />
+
+        <!-- Tags -->
+        {post.tags.length > 0 && (
+          <div class="mt-12 pt-8 border-t border-surface-800">
+            <TagList tags={post.tags} client:load />
+          </div>
+        )}
+
+        <!-- Share -->
+        <div class="mt-8 pt-8 border-t border-surface-800 flex flex-wrap items-center justify-between gap-4">
+          <SocialShare title={post.title} url={fullUrl} client:load />
+
+          {post.isAiGenerated && (
+            <span class="text-xs text-surface-500 flex items-center gap-1">
+              <span class="inline-block w-2 h-2 rounded-full bg-purple-500"></span>
+              AI-assisted content
+            </span>
+          )}
+        </div>
+
+        <!-- Related Posts -->
+        <RelatedPosts posts={relatedPosts} client:load />
+      </div>
+    </div>
+  </article>
+
+  <script>
+    // Reading progress indicator
+    function updateReadingProgress() {
+      const article = document.querySelector('article');
+      const progressBar = document.getElementById('reading-progress');
+
+      if (!article || !progressBar) return;
+
+      const articleTop = article.offsetTop;
+      const articleHeight = article.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const scrollTop = window.scrollY;
+
+      const progress = Math.min(
+        100,
+        Math.max(0, ((scrollTop - articleTop + windowHeight) / articleHeight) * 100)
+      );
+
+      progressBar.style.width = `${progress}%`;
+    }
+
+    window.addEventListener('scroll', updateReadingProgress, { passive: true });
+    updateReadingProgress();
+  </script>
+</BlogLayout>

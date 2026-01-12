@@ -8,6 +8,7 @@ const footerLinks = {
     { label: 'Connected Hardware & IoT', href: '#services' },
   ],
   resources: [
+    { label: 'Blog', href: '/blog' },
     { label: 'Who We Help', href: '#who-we-help' },
     { label: 'How We Work', href: '#how-we-work' },
     { label: 'Projects', href: '#work' },
