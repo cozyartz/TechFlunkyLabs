@@ -106,7 +106,6 @@ const fullCanonicalUrl = canonicalUrl || Astro.url.href;
 <style is:global>
   /* Blog-specific styles for cleaner reading experience */
   .blog-layout {
-    /* Reduce noise overlay for readability */
     background: #000;
   }
 
@@ -123,12 +122,16 @@ const fullCanonicalUrl = canonicalUrl || Astro.url.href;
     color: #d4d4d8;
   }
 
+  /* ========================================
+     HEADINGS - Clean, hierarchy-focused
+     ======================================== */
   .blog-content h1 {
     font-size: 2.5rem;
     font-weight: 700;
     color: #f4f4f5;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
+    letter-spacing: -0.025em;
   }
 
   .blog-content h2 {
@@ -136,98 +139,432 @@ const fullCanonicalUrl = canonicalUrl || Astro.url.href;
     font-weight: 600;
     color: #f4f4f5;
     margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     line-height: 1.3;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #27272a;
   }
 
   .blog-content h3 {
     font-size: 1.375rem;
     font-weight: 600;
-    color: #f4f4f5;
+    color: #e4e4e7;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .blog-content h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #d4d4d8;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
   }
 
+  /* ========================================
+     PARAGRAPHS & TEXT
+     ======================================== */
   .blog-content p {
     margin-bottom: 1.5rem;
   }
 
+  .blog-content strong,
+  .blog-content b {
+    color: #f4f4f5;
+    font-weight: 600;
+  }
+
+  .blog-content em,
+  .blog-content i {
+    font-style: italic;
+  }
+
+  /* ========================================
+     LINKS - Electric yellow theme
+     ======================================== */
   .blog-content a {
     color: #e0ff00;
     text-decoration: underline;
-    text-underline-offset: 2px;
-    transition: color 0.2s;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: all 0.2s ease;
   }
 
   .blog-content a:hover {
     color: #f0ff4d;
+    text-decoration-thickness: 2px;
   }
 
+  .blog-content a .external-link-icon {
+    display: inline-block;
+    margin-left: 4px;
+    vertical-align: middle;
+    opacity: 0.6;
+  }
+
+  /* ========================================
+     LISTS - Beautiful styled bullets/numbers
+     ======================================== */
   .blog-content ul,
   .blog-content ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
+    margin: 1.5rem 0 2rem 0;
+    padding-left: 0;
   }
 
-  .blog-content li {
-    margin-bottom: 0.5rem;
+  .blog-content ul.styled-list,
+  .blog-content ul {
+    list-style: none;
   }
 
-  .blog-content blockquote {
-    border-left: 3px solid #e0ff00;
-    padding-left: 1.5rem;
+  .blog-content ol.styled-list,
+  .blog-content ol {
+    list-style: none;
+    counter-reset: item;
+  }
+
+  .blog-content ul > li,
+  .blog-content ul.styled-list > li {
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+  }
+
+  .blog-content ul > li::before,
+  .blog-content ul.styled-list > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, #e0ff00 0%, #b8d900 100%);
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+
+  .blog-content ol > li,
+  .blog-content ol.styled-list > li {
+    position: relative;
+    padding-left: 2.5rem;
+    margin-bottom: 0.75rem;
+    counter-increment: item;
+    line-height: 1.7;
+  }
+
+  .blog-content ol > li::before,
+  .blog-content ol.styled-list > li::before {
+    content: counter(item);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: linear-gradient(135deg, #e0ff00 0%, #c8e600 100%);
+    color: #000;
+    font-weight: 700;
+    font-size: 0.8em;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Nested lists */
+  .blog-content li ul,
+  .blog-content li ol {
+    margin: 0.75rem 0;
+  }
+
+  .blog-content li li::before {
+    background: #52525b;
+    transform: rotate(45deg) scale(0.8);
+  }
+
+  .blog-content ol li ol li::before {
+    background: #52525b;
+    color: #f4f4f5;
+  }
+
+  /* ========================================
+     TABLES - Professional data presentation
+     ======================================== */
+  .blog-content .table-wrapper {
     margin: 2rem 0;
-    color: #a1a1aa;
-    font-style: italic;
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid #27272a;
+    background: linear-gradient(180deg, #18181b 0%, #0f0f10 100%);
   }
 
-  .blog-content code {
-    background: #1a1a1a;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9em;
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+
+  .blog-content thead {
+    background: linear-gradient(90deg, rgba(224, 255, 0, 0.08) 0%, rgba(224, 255, 0, 0.04) 100%);
+    border-bottom: 2px solid #e0ff00;
+  }
+
+  .blog-content th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
     color: #e0ff00;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .blog-content td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #27272a;
+    color: #d4d4d8;
+  }
+
+  .blog-content tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .blog-content tbody tr:hover {
+    background: rgba(224, 255, 0, 0.03);
+  }
+
+  /* Highlight important row */
+  .blog-content tbody tr:has(strong),
+  .blog-content tbody tr:has(b) {
+    background: rgba(224, 255, 0, 0.06);
+  }
+
+  .blog-content tbody tr:has(strong) td,
+  .blog-content tbody tr:has(b) td {
+    color: #f4f4f5;
+    font-weight: 500;
+  }
+
+  /* ========================================
+     BLOCKQUOTES - Styled callouts
+     ======================================== */
+  .blog-content blockquote,
+  .blog-content .styled-quote {
+    position: relative;
+    margin: 2rem 0;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(224, 255, 0, 0.05) 0%, rgba(224, 255, 0, 0.02) 100%);
+    border-left: 4px solid #e0ff00;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: #a1a1aa;
+  }
+
+  .blog-content blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 4rem;
+    color: rgba(224, 255, 0, 0.15);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .blog-content blockquote p {
+    margin-bottom: 0;
+  }
+
+  .blog-content blockquote p:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  /* ========================================
+     CODE BLOCKS - Developer-focused
+     ======================================== */
+  .blog-content code {
+    background: #1f1f23;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.875em;
+    color: #e0ff00;
+    border: 1px solid #27272a;
+  }
+
+  .blog-content .code-block {
+    position: relative;
+    margin: 2rem 0;
+  }
+
+  .blog-content .code-block .code-lang {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5rem 1rem;
+    background: rgba(224, 255, 0, 0.1);
+    color: #e0ff00;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0 12px 0 8px;
+    font-family: 'JetBrains Mono', monospace;
   }
 
   .blog-content pre {
-    background: #0d0d0d;
-    border: 1px solid #1a1a1a;
+    background: linear-gradient(180deg, #0d0d0f 0%, #0a0a0c 100%);
+    border: 1px solid #27272a;
     border-radius: 12px;
     padding: 1.5rem;
     overflow-x: auto;
-    margin: 2rem 0;
+    margin: 0;
   }
 
   .blog-content pre code {
     background: transparent;
     padding: 0;
     color: #d4d4d8;
+    border: none;
+    font-size: 0.875rem;
+    line-height: 1.7;
   }
 
+  /* Scrollbar for code blocks */
+  .blog-content pre::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .blog-content pre::-webkit-scrollbar-track {
+    background: #18181b;
+    border-radius: 4px;
+  }
+
+  .blog-content pre::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 4px;
+  }
+
+  .blog-content pre::-webkit-scrollbar-thumb:hover {
+    background: #52525b;
+  }
+
+  /* ========================================
+     IMAGES & FIGURES
+     ======================================== */
   .blog-content img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
-    margin: 2rem 0;
+    margin: 2rem auto;
+    display: block;
   }
 
-  .blog-content hr {
+  .blog-content .blog-figure {
+    margin: 2.5rem 0;
+  }
+
+  .blog-content .blog-figure img {
+    margin: 0;
+    border: 1px solid #27272a;
+  }
+
+  .blog-content .blog-figure figcaption {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #71717a;
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
+  /* ========================================
+     HORIZONTAL RULES
+     ======================================== */
+  .blog-content hr,
+  .blog-content .styled-divider {
     border: none;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #2a2a2a, transparent);
+    background: linear-gradient(90deg, transparent 0%, #3f3f46 20%, #e0ff00 50%, #3f3f46 80%, transparent 100%);
     margin: 3rem 0;
   }
 
-  /* Reading progress indicator */
+  /* ========================================
+     READING PROGRESS INDICATOR
+     ======================================== */
   .reading-progress {
     position: fixed;
     top: 0;
     left: 0;
     width: 0%;
     height: 3px;
-    background: linear-gradient(90deg, #e0ff00, #b8d900);
+    background: linear-gradient(90deg, #e0ff00, #c8e600);
     z-index: 100;
     transition: width 0.1s;
+    box-shadow: 0 0 10px rgba(224, 255, 0, 0.5);
+  }
+
+  /* ========================================
+     RESPONSIVE ADJUSTMENTS
+     ======================================== */
+  @media (max-width: 768px) {
+    .blog-content {
+      font-size: 1rem;
+    }
+
+    .blog-content h1 {
+      font-size: 2rem;
+    }
+
+    .blog-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .blog-content h3 {
+      font-size: 1.25rem;
+    }
+
+    .blog-content .table-wrapper {
+      margin: 1.5rem -1rem;
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+
+    .blog-content th,
+    .blog-content td {
+      padding: 0.75rem 1rem;
+    }
+
+    .blog-content ul > li,
+    .blog-content ol > li {
+      padding-left: 1.5rem;
+    }
+
+    .blog-content ol > li {
+      padding-left: 2.25rem;
+    }
+  }
+
+  /* ========================================
+     PRINT STYLES
+     ======================================== */
+  @media print {
+    .blog-content {
+      color: #000;
+    }
+
+    .blog-content a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    .blog-content code {
+      background: #f4f4f5;
+      color: #000;
+    }
+
+    .reading-progress {
+      display: none;
+    }
   }
 </style>
